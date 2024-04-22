@@ -41,6 +41,7 @@
     "feather-icons": "^4.29.1",
     "flexsearch": "^0.7.31",
     "pagefind": "^1.0.4",
+    "prettier": "^3.2.5",
     "prism-themes": "^1.9.0"
   }
 }
