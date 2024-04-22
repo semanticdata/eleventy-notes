@@ -14,7 +14,7 @@
     "js:build": "node scripts/bundle-js.js",
     "clean": "rimraf dist",
     "check": "npx prettier . --check",
-    "format": "npx prettier . --format"
+    "format": "npx prettier . --write"
   },
   "keywords": [],
   "author": "",
