@@ -1,5 +1,5 @@
-const ValueParser = require("../../shared").ValueParser;
-const { Wikilink } = require("../wikilinks");
+const ValueParser = require('../../shared').ValueParser
+const {Wikilink} = require('../wikilinks')
 
 /**
  * Creates a filter function that resolves custom properties.
@@ -16,76 +16,76 @@ module.exports = (eleventyConfig) => {
     const wikilink = new Wikilink(
       this.ctx.collections._notes,
       this.ctx.app.wikilinks,
-      eleventyConfig.getFilter("slugifyPath"),
-      eleventyConfig.getFilter("slugify")
-    );
+      eleventyConfig.getFilter('slugifyPath'),
+      eleventyConfig.getFilter('slugify')
+    )
 
     function nameToDisplayName(name) {
       return name
-        .replace(/([A-Z])/g, " $1")
+        .replace(/([A-Z])/g, ' $1')
         .replace(/[-_](.)/g, (_, c) => ` ${c.toUpperCase()}`)
         .replace(/^./, (c) => c.toUpperCase())
-        .trim();
+        .trim()
     }
 
     function findMatchingNames(data, pattern) {
-      const keys = Object.keys(data);
-      if (!pattern) return keys;
+      const keys = Object.keys(data)
+      if (!pattern) return keys
 
-      const regex = new RegExp(pattern, "i");
-      return keys.filter((key) => regex.test(key));
+      const regex = new RegExp(pattern, 'i')
+      return keys.filter((key) => regex.test(key))
     }
 
     function parseValue(value, options) {
-      if (typeof value === "string" && Wikilink.REGEX.test(value)) {
-        const [, path, , text] = value.match(Wikilink.REGEX);
-        const link = wikilink.process(path, text);
-        return [{ type: "wikilink", ...link }];
+      if (typeof value === 'string' && Wikilink.REGEX.test(value)) {
+        const [, path, , text] = value.match(Wikilink.REGEX)
+        const link = wikilink.process(path, text)
+        return [{type: 'wikilink', ...link}]
       }
 
-      if (typeof value === "number") {
+      if (typeof value === 'number') {
         const intl = new Intl.NumberFormat(
           options?.number?.locale,
           options?.number?.format
-        );
-        return [{ type: "number", formattedValue: intl.format(value) }];
+        )
+        return [{type: 'number', formattedValue: intl.format(value)}]
       }
 
-      if (typeof value === "boolean") {
-        return [{ type: "boolean", formattedValue: value ? "Yes" : "No" }];
+      if (typeof value === 'boolean') {
+        return [{type: 'boolean', formattedValue: value ? 'Yes' : 'No'}]
       }
 
       if (value instanceof Date) {
         const intl = new Intl.DateTimeFormat(
           options?.date?.locale,
           options?.date?.format
-        );
-        return [{ type: "date", value, formattedValue: intl.format(value) }];
+        )
+        return [{type: 'date', value, formattedValue: intl.format(value)}]
       }
 
       if (Array.isArray(value)) {
-        return value.flatMap((x) => parseValue(x, options));
+        return value.flatMap((x) => parseValue(x, options))
       }
 
-      return [{ type: "string", value }];
+      return [{type: 'string', value}]
     }
 
     return properties.flatMap((property) => {
-      const rootPath = property.path ?? "";
-      const root = ValueParser.getValueByPath(this.ctx, rootPath) ?? {};
-      const names = findMatchingNames(root, property.name);
+      const rootPath = property.path ?? ''
+      const root = ValueParser.getValueByPath(this.ctx, rootPath) ?? {}
+      const names = findMatchingNames(root, property.name)
       return names.flatMap((name) => {
-        const value = ValueParser.getValueByPath(root, name);
-        if (value === undefined || value === null) return [];
+        const value = ValueParser.getValueByPath(root, name)
+        if (value === undefined || value === null) return []
 
         return [
           {
             name,
             label: property.label || nameToDisplayName(name),
-            values: parseValue(value, property.options),
-          },
-        ];
-      });
-    });
-  };
-};
+            values: parseValue(value, property.options)
+          }
+        ]
+      })
+    })
+  }
+}

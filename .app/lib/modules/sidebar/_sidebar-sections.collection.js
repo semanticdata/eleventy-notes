@@ -1,41 +1,41 @@
-const appData = require("../../../_data/app");
-const notesModule = require("../notes/");
-const dynamicContentModule = require("../dynamic-content");
+const appData = require('../../../_data/app')
+const notesModule = require('../notes/')
+const dynamicContentModule = require('../dynamic-content')
 
 module.exports = (eleventyConfig) => (collectionApi) => {
-  let counter = 0;
-  const getId = () => counter++;
+  let counter = 0
+  const getId = () => counter++
 
-  const app = appData();
-  const notes = notesModule.notesCollection(eleventyConfig)(collectionApi);
+  const app = appData()
+  const notes = notesModule.notesCollection(eleventyConfig)(collectionApi)
 
   const sections = app.sidebar.sections.flatMap((section) => {
     const groups = section.groups.flatMap((group) => {
-      const runner = new dynamicContentModule.QueryRunner(notes, group.query);
-      const filteredNotes = runner.run(notes);
+      const runner = new dynamicContentModule.QueryRunner(notes, group.query)
+      const filteredNotes = runner.run(notes)
 
-      if (!filteredNotes.length) return [];
+      if (!filteredNotes.length) return []
 
       return [
         {
           id: getId(),
           label: group.label,
           expanded: group.expanded ?? true,
-          tree: filteredNotes,
-        },
-      ];
-    });
+          tree: filteredNotes
+        }
+      ]
+    })
 
-    if (!groups.length) return [];
+    if (!groups.length) return []
 
     return [
       {
         id: getId(),
         label: section.label,
-        groups,
-      },
-    ];
-  });
+        groups
+      }
+    ]
+  })
 
-  return sections;
-};
+  return sections
+}

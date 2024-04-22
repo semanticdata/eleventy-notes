@@ -1,14 +1,14 @@
-const fs = require("fs");
+const fs = require('fs')
 
 class DefaultIndex {
   data() {
-    const hasCustomIndex = fs.existsSync("./../index.md");
+    const hasCustomIndex = fs.existsSync('./../index.md')
     return {
-      title: "Home",
-      permalink: hasCustomIndex ? false : "/",
-      layout: "core/base.layout.njk",
-      panel: false,
-    };
+      title: 'Home',
+      permalink: hasCustomIndex ? false : '/',
+      layout: 'core/base.layout.njk',
+      panel: false
+    }
   }
 
   render() {
@@ -19,8 +19,8 @@ class DefaultIndex {
           <p>Customize this page by creating a file named index.md in the root of your project.</p>
         </main>
       </div>
-    `;
+    `
   }
 }
 
-module.exports = DefaultIndex;
+module.exports = DefaultIndex

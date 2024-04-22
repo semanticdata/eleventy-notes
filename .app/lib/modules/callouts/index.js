@@ -1,3 +1,3 @@
 module.exports = {
-  markdownPlugin: require("./callouts.md-plugin"),
-};
+  markdownPlugin: require('./callouts.md-plugin')
+}

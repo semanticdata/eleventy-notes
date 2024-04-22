@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+const crypto = require('crypto')
 
 /**
  * Creates a uniqueId filter.
@@ -16,7 +16,7 @@ module.exports = () => {
    * ```
    */
   return () => {
-    const id = crypto.randomUUID().substring(0, 8);
-    return (...args) => `id-${id}-${args.join("-")}`.toLowerCase();
-  };
-};
+    const id = crypto.randomUUID().substring(0, 8)
+    return (...args) => `id-${id}-${args.join('-')}`.toLowerCase()
+  }
+}

@@ -12,7 +12,7 @@
   background-color: var(--color-surface);
   transition: box-shadow 200ms ease-in-out;
 
-  &[data-scrolled="true"] {
+  &[data-scrolled='true'] {
     box-shadow: var(--shadow-lg);
   }
 

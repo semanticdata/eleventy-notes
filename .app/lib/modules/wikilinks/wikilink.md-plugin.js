@@ -1,30 +1,30 @@
-const html = require("nanohtml");
-const Wikilink = require("./wikilink");
+const html = require('nanohtml')
+const Wikilink = require('./wikilink')
 
 module.exports = (md, options) => {
-  md.inline.ruler.after("link", "wikilink", inline);
-  md.renderer.rules["wikilink"] = render;
+  md.inline.ruler.after('link', 'wikilink', inline)
+  md.renderer.rules['wikilink'] = render
 
   function inline(state, silent) {
-    const src = state.src.substring(state.pos);
-    const match = Wikilink.REGEX_INLINE.exec(src);
+    const src = state.src.substring(state.pos)
+    const match = Wikilink.REGEX_INLINE.exec(src)
 
-    if (!match) return false;
+    if (!match) return false
 
-    state.pos += match[0].length;
+    state.pos += match[0].length
 
     if (!silent) {
-      const token = state.push("wikilink", "", 0);
-      token.meta = { match };
+      const token = state.push('wikilink', '', 0)
+      token.meta = {match}
     }
 
-    return true;
+    return true
   }
 
   function render(tokens, index, _options, env) {
-    const match = tokens[index].meta.match;
-    const { href, label } = processMatch(match, env);
-    return html`<a href="${href}">${label}</a>`;
+    const match = tokens[index].meta.match
+    const {href, label} = processMatch(match, env)
+    return html`<a href="${href}">${label}</a>`
   }
 
   function processMatch(match, env) {
@@ -33,10 +33,10 @@ module.exports = (md, options) => {
       env.app.wikilinks,
       options.slugify,
       options.slugifyAnchor
-    );
+    )
 
-    const [, path, , text] = match;
+    const [, path, , text] = match
 
-    return wikilink.process(path, text);
+    return wikilink.process(path, text)
   }
-};
+}

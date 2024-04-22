@@ -1,5 +1,5 @@
-const baseUrl = document.currentScript?.getAttribute("data-base") ?? "/";
-const indexJsonUrl = baseUrl + "index.json";
+const baseUrl = document.currentScript?.getAttribute('data-base') ?? '/'
+const indexJsonUrl = baseUrl + 'index.json'
 
 /**
  * Creates the bookmarks store.
@@ -7,7 +7,7 @@ const indexJsonUrl = baseUrl + "index.json";
  * @param {import('alpinejs').Alpine} Alpine The alpine instance.
  */
 export default function (Alpine) {
-  Alpine.store("bookmarks", {
+  Alpine.store('bookmarks', {
     /**
      * The index of all notes.
      * A key-value map of note URLs to note titles.
@@ -19,21 +19,21 @@ export default function (Alpine) {
      * The list of bookmarked notes.
      * @type {string[]}
      */
-    items: Alpine.$persist([]).as("favorites"), // called favorites for backwards compatibility
+    items: Alpine.$persist([]).as('favorites'), // called favorites for backwards compatibility
 
     async init() {
       this.index = await fetch(indexJsonUrl)
         .then((r) => r.json())
         .catch(() => {
-          console.error("Could not fetch notes index");
-          return {};
-        });
+          console.error('Could not fetch notes index')
+          return {}
+        })
 
-      this.cleanUpBookmarks();
+      this.cleanUpBookmarks()
     },
 
     is(id) {
-      return this.items.includes(id);
+      return this.items.includes(id)
     },
 
     /**
@@ -42,15 +42,15 @@ export default function (Alpine) {
      */
     toggle(id) {
       if (this.items.includes(id)) {
-        this.items = this.items.filter((bkm) => bkm !== id);
+        this.items = this.items.filter((bkm) => bkm !== id)
       } else {
-        this.items.push(id);
+        this.items.push(id)
       }
     },
 
     cleanUpBookmarks() {
-      if (Object.keys(this.index).length === 0) return;
-      this.items = this.items.filter((id) => !!this.index[id]);
-    },
-  });
+      if (Object.keys(this.index).length === 0) return
+      this.items = this.items.filter((id) => !!this.index[id])
+    }
+  })
 }

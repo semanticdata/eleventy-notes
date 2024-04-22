@@ -1,4 +1,4 @@
-@use "./../../../../css/2-lib/breakpoints" as *;
+@use './../../../../css/2-lib/breakpoints' as *;
 
 .article {
   & > * + * {

@@ -1,5 +1,5 @@
 module.exports = {
-  _sidebarSectionsCollection: require("./_sidebar-sections.collection"),
+  _sidebarSectionsCollection: require('./_sidebar-sections.collection'),
 
   /**
    * Sets up the module.
@@ -7,8 +7,8 @@ module.exports = {
    */
   setup(config) {
     config.addCollection(
-      "_sidebarSections",
+      '_sidebarSections',
       this._sidebarSectionsCollection(config)
-    );
-  },
-};
+    )
+  }
+}

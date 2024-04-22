@@ -6,17 +6,17 @@ module.exports = class ValueParser {
    * @returns The item if the path is empty, undefined if the path is invalid, or the value.
    */
   static getValueByPath(item, path) {
-    if (path === "") return item;
-    if (!path) return undefined;
+    if (path === '') return item
+    if (!path) return undefined
 
-    const parts = path.split(".");
-    let value = item;
+    const parts = path.split('.')
+    let value = item
 
     for (let part of parts) {
-      if (!(part in value)) return undefined;
-      value = value[part];
+      if (!(part in value)) return undefined
+      value = value[part]
     }
 
-    return value;
+    return value
   }
-};
+}

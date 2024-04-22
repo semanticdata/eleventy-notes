@@ -19,11 +19,11 @@
     @include light-mode();
   }
 
-  &[data-theme="dark"] {
+  &[data-theme='dark'] {
     @include dark-mode();
   }
 
-  &[data-theme="light"] {
+  &[data-theme='light'] {
     @include light-mode();
   }
 }

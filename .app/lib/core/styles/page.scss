@@ -1,4 +1,4 @@
-@use "./../../../css/2-lib/breakpoints" as *;
+@use './../../../css/2-lib/breakpoints' as *;
 
 .page__main {
   inline-size: 72ch;
@@ -27,7 +27,7 @@
   line-height: 1.3;
 }
 
-@include media-breakpoint-up("lg") {
+@include media-breakpoint-up('lg') {
   .page {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;

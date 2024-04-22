@@ -1,17 +1,17 @@
-const html = require("nanohtml");
-const raw = require("nanohtml/raw");
+const html = require('nanohtml')
+const raw = require('nanohtml/raw')
 
 module.exports = (md) => {
-  md.renderer.rules.code_block = renderCode(md.renderer.rules.code_block);
-  md.renderer.rules.fence = renderCode(md.renderer.rules.fence);
+  md.renderer.rules.code_block = renderCode(md.renderer.rules.code_block)
+  md.renderer.rules.fence = renderCode(md.renderer.rules.fence)
 
   function renderCode(originalRule) {
     return (...args) => {
-      const [tokens, idx] = args;
-      const content = tokens[idx].content;
-      const originalContent = originalRule(...args);
+      const [tokens, idx] = args
+      const content = tokens[idx].content
+      const originalContent = originalRule(...args)
 
-      if (content.length === 0) return originalContent;
+      if (content.length === 0) return originalContent
 
       return html`
         <div class="code-block">
@@ -23,8 +23,7 @@ module.exports = (md) => {
             x-cloak
             x-data="copyToClipboard()"
             x-bind="copyBtn"
-            lang="en"
-          >
+            lang="en">
             <svg x-show="!copied">
               <use xlink:href="#icon-copy"></use>
             </svg>
@@ -33,7 +32,7 @@ module.exports = (md) => {
             </svg>
           </button>
         </div>
-      `;
-    };
+      `
+    }
   }
-};
+}

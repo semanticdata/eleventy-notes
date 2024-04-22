@@ -1,5 +1,5 @@
 module.exports = {
-  resolveCustomPropsFilter: require("./resolve-custom-props.filter"),
+  resolveCustomPropsFilter: require('./resolve-custom-props.filter'),
 
   /**
    * Sets up the module.
@@ -7,8 +7,8 @@ module.exports = {
    */
   setup(config) {
     config.addFilter(
-      "resolveCustomProps",
+      'resolveCustomProps',
       this.resolveCustomPropsFilter(config)
-    );
-  },
-};
+    )
+  }
+}

@@ -1,6 +1,6 @@
 module.exports = class Wikilink {
-  static REGEX = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]$/;
-  static REGEX_INLINE = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]/;
+  static REGEX = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]$/
+  static REGEX_INLINE = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]/
 
   /**
    * @typedef Note
@@ -19,10 +19,10 @@ module.exports = class Wikilink {
    * @param {(path: string) => string} slugifyAnchor
    */
   constructor(notes, wikilinksConfig, slugify, slugifyAnchor) {
-    this.notes = notes;
-    this.wikilinksConfig = wikilinksConfig;
-    this.slugify = slugify;
-    this.slugifyAnchor = slugifyAnchor;
+    this.notes = notes
+    this.wikilinksConfig = wikilinksConfig
+    this.slugify = slugify
+    this.slugifyAnchor = slugifyAnchor
   }
 
   /**
@@ -32,12 +32,12 @@ module.exports = class Wikilink {
    * @returns The processed wikilink with the href and label.
    */
   process(path, text) {
-    const { file, hash } = this.processPath(path);
-    const page = file ? this.findMatchingPage(file) : undefined;
-    const label = this.createLabel(text, file, hash, page);
-    const href = this.createHref(file, hash, page);
+    const {file, hash} = this.processPath(path)
+    const page = file ? this.findMatchingPage(file) : undefined
+    const label = this.createLabel(text, file, hash, page)
+    const href = this.createHref(file, hash, page)
 
-    return { href, label };
+    return {href, label}
   }
 
   /**
@@ -48,14 +48,14 @@ module.exports = class Wikilink {
    * @returns The href for the wikilink.
    */
   createHref(file, hash, page) {
-    if (hash === "Cloning the template") {
-      console.log({ file, hash });
+    if (hash === 'Cloning the template') {
+      console.log({file, hash})
     }
 
-    let href = page ? page.url : file ? this.slugify(`/${file}`) : "";
-    hash && (href += `#${this.slugifyAnchor(hash)}`);
+    let href = page ? page.url : file ? this.slugify(`/${file}`) : ''
+    hash && (href += `#${this.slugifyAnchor(hash)}`)
 
-    return href;
+    return href
   }
 
   /**
@@ -67,41 +67,41 @@ module.exports = class Wikilink {
    * @returns The final label for the wikilink.
    */
   createLabel(text, file, hash, page) {
-    if (text) return text;
-    if (!file && !!hash) return hash;
+    if (text) return text
+    if (!file && !!hash) return hash
 
-    let label = file;
+    let label = file
 
     switch (this.wikilinksConfig.autoLabel) {
-      case "title":
-        label = page.data.title || page.fileSlug || file;
-        break;
-      case "fileSlug":
-        label = page.fileSlug || file;
-        break;
-      case "ref":
+      case 'title':
+        label = page.data.title || page.fileSlug || file
+        break
+      case 'fileSlug':
+        label = page.fileSlug || file
+        break
+      case 'ref':
       default:
-        break;
+        break
     }
 
     if (hash) {
       switch (this.wikilinksConfig.anchorLabel) {
-        case "arrow":
-          label += ` → ${hash}`;
-          break;
-        case "parentheses":
-          label += ` (${hash})`;
-          break;
-        case "hash":
-          label += `#${hash}`;
-          break;
-        case "none":
+        case 'arrow':
+          label += ` → ${hash}`
+          break
+        case 'parentheses':
+          label += ` (${hash})`
+          break
+        case 'hash':
+          label += `#${hash}`
+          break
+        case 'none':
         default:
-          break;
+          break
       }
     }
 
-    return label;
+    return label
   }
 
   /**
@@ -110,15 +110,15 @@ module.exports = class Wikilink {
    * @returns {Note | undefined} The first matching note or undefined.
    */
   findMatchingPage(pageName) {
-    pageName = pageName.toLowerCase();
+    pageName = pageName.toLowerCase()
 
     const match =
       this.notes.find((f) => this.normalizePath(f.filePathStem) === pageName) ||
       this.notes.find((f) =>
         this.normalizePath(f.filePathStem).endsWith(`/${pageName}`)
-      );
+      )
 
-    return match;
+    return match
   }
 
   /**
@@ -127,9 +127,9 @@ module.exports = class Wikilink {
    * @returns The
    */
   processPath(path) {
-    const [file, ...hashes] = path.split("#");
-    const hash = hashes.join("#");
-    return { file, hash };
+    const [file, ...hashes] = path.split('#')
+    const hash = hashes.join('#')
+    return {file, hash}
   }
 
   /**
@@ -138,6 +138,6 @@ module.exports = class Wikilink {
    * @returns The normalized path.
    */
   normalizePath(path) {
-    return path.replace(/^\//, "").toLowerCase();
+    return path.replace(/^\//, '').toLowerCase()
   }
-};
+}

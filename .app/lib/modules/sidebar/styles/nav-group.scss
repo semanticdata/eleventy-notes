@@ -26,7 +26,7 @@
   background: transparent;
   cursor: pointer;
 
-  &[aria-expanded="true"] svg {
+  &[aria-expanded='true'] svg {
     transform: rotate(90deg);
   }
 }

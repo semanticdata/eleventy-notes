@@ -34,7 +34,7 @@
     opacity: 0.75;
   }
 
-  &[aria-expanded="true"] svg {
+  &[aria-expanded='true'] svg {
     transform: rotate(90deg);
   }
 }
@@ -58,7 +58,7 @@
     background-color: var(--color-neutral-bg);
   }
 
-  &[aria-current="page"] {
+  &[aria-current='page'] {
     background-color: var(--color-primary-bg);
 
     & + .nav-list__toggle:hover {

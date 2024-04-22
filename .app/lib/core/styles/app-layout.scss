@@ -1,11 +1,11 @@
-@use "./../../../css/2-lib/breakpoints" as *;
+@use './../../../css/2-lib/breakpoints' as *;
 
 .app-layout__sidebar {
   background-color: var(--color-backdrop);
   overscroll-behavior: contain;
   z-index: 2;
 
-  &[data-open="false"] {
+  &[data-open='false'] {
     display: none;
   }
 
@@ -28,7 +28,7 @@
   }
 }
 
-@include media-breakpoint-up("xl") {
+@include media-breakpoint-up('xl') {
   .app-layout__wrapper {
     display: grid;
     grid-template-columns: 300px minmax(0, 1fr);

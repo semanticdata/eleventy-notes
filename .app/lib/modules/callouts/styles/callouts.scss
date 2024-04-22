@@ -1,11 +1,11 @@
-$colors: ("blue", "mint", "green", "orange", "red", "purple", "gray");
+$colors: ('blue', 'mint', 'green', 'orange', 'red', 'purple', 'gray');
 
 .callout {
   border-radius: var(--rounded-md);
   background: var(--callout-bg);
 
   @each $color in $colors {
-    &[data-color="#{$color}"] {
+    &[data-color='#{$color}'] {
       --callout-text: var(--callout-#{$color}-text);
       --callout-bg: var(--callout-#{$color}-bg);
     }

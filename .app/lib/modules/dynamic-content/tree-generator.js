@@ -1,4 +1,4 @@
-const { ValueParser } = require("../../shared");
+const {ValueParser} = require('../../shared')
 
 /**
  * @typedef {object} TreeConfigObj
@@ -35,8 +35,8 @@ module.exports = class TreeGenerator {
    * @param {TreeConfig} options The tree generation options.
    */
   constructor(data, options) {
-    this.data = data;
-    this.options = this.normalize(options);
+    this.data = data
+    this.options = this.normalize(options)
   }
 
   /**
@@ -45,86 +45,86 @@ module.exports = class TreeGenerator {
    * @returns {NormalizedTreeConfig}
    */
   normalize(options) {
-    if (typeof options !== "boolean") {
-      options.expanded;
+    if (typeof options !== 'boolean') {
+      options.expanded
     }
 
     return {
-      titleProp: options?.titleProp || "title",
+      titleProp: options?.titleProp || 'title',
       pathProp: Array.isArray(options?.pathProp)
         ? options.pathProp
-        : [options.pathProp || "filePathStem"],
+        : [options.pathProp || 'filePathStem'],
       expanded: options?.expanded ?? true,
-      replace: options?.replace ?? {},
-    };
+      replace: options?.replace ?? {}
+    }
   }
 
   /**
    * Creates a tree structure from the list of items.
    */
   run() {
-    const tree = [];
+    const tree = []
 
     this.data.forEach((item) => {
-      const parts = this.getTreeParts(item);
+      const parts = this.getTreeParts(item)
 
-      let [parent, current] = [undefined, tree];
+      let [parent, current] = [undefined, tree]
       parts.forEach((part, idx) => {
-        let item = current.find((i) => i.$treeName === part);
+        let item = current.find((i) => i.$treeName === part)
         if (!item) {
-          const currentParts = parts.slice(0, idx + 1);
+          const currentParts = parts.slice(0, idx + 1)
 
           item = {
-            $treeKey: currentParts.map(this.slugify).join("--"),
+            $treeKey: currentParts.map(this.slugify).join('--'),
             $treeName: part,
             $treeExpanded: this.getInitialExpandedState(
-              `/${currentParts.join("/")}`,
+              `/${currentParts.join('/')}`,
               idx + 1
             ),
             [this.options.titleProp]: part,
-            children: [],
-          };
-          current.push(item);
+            children: []
+          }
+          current.push(item)
         }
-        [parent, current] = [item, item.children];
-      });
+        ;[parent, current] = [item, item.children]
+      })
 
-      Object.assign(parent, item);
-    });
-    return tree;
+      Object.assign(parent, item)
+    })
+    return tree
   }
 
   getTreeParts(item) {
-    const replace = this.options.replace;
-    const rawPath = this.getRawTreePath(item);
+    const replace = this.options.replace
+    const rawPath = this.getRawTreePath(item)
     const parsedPath = Object.entries(replace).reduce(
-      (acc, [pattern, value]) => acc.replace(new RegExp(pattern, "gi"), value),
+      (acc, [pattern, value]) => acc.replace(new RegExp(pattern, 'gi'), value),
       rawPath
-    );
+    )
 
-    const parts = parsedPath.replace(/^\//, "").split("/");
-    return parts;
+    const parts = parsedPath.replace(/^\//, '').split('/')
+    return parts
   }
 
   getRawTreePath(item) {
     for (const prop of this.options.pathProp) {
-      const value = ValueParser.getValueByPath(item, prop);
-      if (typeof value === "string") return value;
+      const value = ValueParser.getValueByPath(item, prop)
+      if (typeof value === 'string') return value
     }
 
-    return "";
+    return ''
   }
 
   getInitialExpandedState(path, depth) {
-    const config = this.options.expanded;
-    if (typeof config === "boolean") return config;
-    if (typeof config === "number") return depth <= config;
-    if (typeof config === "string") {
-      const pattern = new RegExp(config, "i");
-      return pattern.test(path);
+    const config = this.options.expanded
+    if (typeof config === 'boolean') return config
+    if (typeof config === 'number') return depth <= config
+    if (typeof config === 'string') {
+      const pattern = new RegExp(config, 'i')
+      return pattern.test(path)
     }
 
-    return true;
+    return true
   }
 
   /**
@@ -135,7 +135,7 @@ module.exports = class TreeGenerator {
   slugify(value) {
     return value
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "");
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)+/g, '')
   }
-};
+}

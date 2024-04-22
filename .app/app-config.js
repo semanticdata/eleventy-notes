@@ -12,7 +12,7 @@ module.exports = {
    * @returns {AppConfig}
    */
   defineConfig(config) {
-    return applyDefaults(config);
+    return applyDefaults(config)
   },
 
   /**
@@ -22,16 +22,16 @@ module.exports = {
    */
   createNotesQuery(query = {}) {
     return {
-      sort: ["data.sort", "title"],
+      sort: ['data.sort', 'title'],
       tree: query.tree ? query.tree : false,
       filter: [
-        ["filePathStem", "isNotEqual", "/index"],
-        ...(query.pattern ? [["filePathStem", "matches", query.pattern]] : []),
-        ...(query.tags ? [["tags", "includesAllOf", query.tags]] : []),
-      ],
-    };
-  },
-};
+        ['filePathStem', 'isNotEqual', '/index'],
+        ...(query.pattern ? [['filePathStem', 'matches', query.pattern]] : []),
+        ...(query.tags ? [['tags', 'includesAllOf', query.tags]] : [])
+      ]
+    }
+  }
+}
 
 /**
  * Merges the custom config with the default config.
@@ -40,36 +40,36 @@ module.exports = {
  */
 function applyDefaults(custom) {
   return {
-    title: "Notes",
-    description: "Notes app",
-    lang: "en",
+    title: 'Notes',
+    description: 'Notes app',
+    lang: 'en',
     ...custom,
 
     theme: {
-      color: "sky",
-      ...custom.theme,
+      color: 'sky',
+      ...custom.theme
     },
 
     customProperties: {
       properties: [],
-      ...custom.customProperties,
+      ...custom.customProperties
     },
     sidebar: {
       links: [],
       sections: [
         {
-          label: "Notes",
+          label: 'Notes',
           groups: [
             {
               query: {
-                sort: ["data.sort", "title"],
-                filter: [["filePathStem", "isNotEqual", "/index"]],
-              },
-            },
-          ],
-        },
+                sort: ['data.sort', 'title'],
+                filter: [['filePathStem', 'isNotEqual', '/index']]
+              }
+            }
+          ]
+        }
       ],
-      ...custom.sidebar,
+      ...custom.sidebar
     },
     panel: {
       tableOfContents: true,
@@ -78,20 +78,20 @@ function applyDefaults(custom) {
       incomingLinks: true,
       outgoingLinks: true,
       externalLinks: true,
-      ...custom.panel,
+      ...custom.panel
     },
     wikilinks: {
-      autoLabel: "ref",
-      anchorLabel: "none",
-      ...custom.wikilinks,
+      autoLabel: 'ref',
+      anchorLabel: 'none',
+      ...custom.wikilinks
     },
     tags: {
       map: {},
-      ...custom.tags,
+      ...custom.tags
     },
     notes: {
-      pathPrefix: "/n",
-      ...custom.notes,
-    },
-  };
+      pathPrefix: '/n',
+      ...custom.notes
+    }
+  }
 }
