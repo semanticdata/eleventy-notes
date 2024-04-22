@@ -29,15 +29,13 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: |
-          cd ./.app
-          npm i
+        run: npm install --prefix .app
       - name: Build
-        run: npm run build
+        run: npm run build --prefix .app
       - name: Upload artifact
-        with:
-          path: .app/dist
         uses: actions/upload-pages-artifact@v3
+        # with:
+          # path: .app/dist
 
   deploy:
     needs: build
