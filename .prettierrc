@@ -11,7 +11,6 @@
   "bracketSameLine": true,
   "arrowParens": "always",
   "proseWrap": "never",
-  "plugins": ["prettier-plugin-astro"],
   "endOfLine": "lf",
   "embeddedLanguageFormatting": "auto",
   "singleAttributePerLine": false,
