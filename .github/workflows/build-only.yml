@@ -19,13 +19,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
     steps:
       - uses: actions/checkout@v4
         name: Checkout
         with:
           fetch-depth: 0 # Fetch all history for git info
-      - name: Change directory
-        run: cd .app
       - uses: actions/setup-node@v4
         name: Setup Node
         with:
