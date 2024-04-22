@@ -2,7 +2,7 @@ class Index {
   data() {
     return {
       layout: null,
-      permalink: "/index.json",
+      permalink: "./index.json",
     };
   }
 
