@@ -30,7 +30,7 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: |
-          cd .app
+          cd ./.app
           npm i
       - name: Build
         run: npm run build
