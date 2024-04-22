@@ -20,4 +20,8 @@ Whether you're a blogger, developer, or just someone who loves to write, Elevent
 
 ---
 
+Check out the new [Forgetful](n/forgetful-notes) section.
+
+---
+
 Built with ❤️ by [Sandro Roth](https://sandroroth.com/)

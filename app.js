@@ -93,6 +93,17 @@ module.exports = defineConfig({
           },
         ],
       },
+      {
+        label: "Notes",
+        groups: [
+          {
+            label: "Forgetful",
+            query: createNotesQuery({
+              pattern: "^/Forgetful Notes/",
+            }),
+          },
+        ],
+      },
     ],
   },
   tags: {
