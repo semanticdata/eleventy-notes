@@ -6,7 +6,7 @@ module.exports = defineConfig({
   description:
     "A simple, lightweight, and flexible note-taking template for Eleventy.",
   editThisNote: {
-    url: "https://github.com/rothsandro/eleventy-notes/edit/{{branch}}/{{file}}",
+    url: "https://github.com/semanticdata/eleventy-notes/edit/{{branch}}/{{file}}",
   },
   customProperties: {
     properties: [
@@ -23,7 +23,7 @@ module.exports = defineConfig({
   sidebar: {
     links: [
       {
-        url: "https://github.com/rothsandro/eleventy-notes",
+        url: "https://github.com/semanticdata/eleventy-notes",
         label: "GitHub / Support",
         icon: "github",
       },
