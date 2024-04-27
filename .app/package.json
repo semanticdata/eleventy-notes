@@ -14,7 +14,8 @@
     "js:build": "node scripts/bundle-js.js",
     "clean": "rimraf dist",
     "check": "npx prettier .. --check --ignore-path ./../.prettierignore --config ./../.prettierrc",
-    "format": "npx prettier .. --write --ignore-path ./../.prettierignore --config ./../.prettierrc"
+    "format": "npx prettier .. --write --ignore-path ./../.prettierignore --config ./../.prettierrc",
+    "test": "npx @11ty/eleventy --dryrun"
   },
   "keywords": [],
   "author": "",

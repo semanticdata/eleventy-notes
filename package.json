@@ -7,6 +7,7 @@
     "start": "npm run windows",
     "windows": "cd .app && npm start",
     "check": "cd .app && npm run check",
-    "format": "cd .app && npm run format"
+    "format": "cd .app && npm run format",
+    "test": "cd .app && npm run test"
   }
 }
