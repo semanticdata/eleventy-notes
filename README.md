@@ -4,17 +4,17 @@
 ![repository size](https://img.shields.io/github/repo-size/semanticdata/forgetful-notes)
 ![commits](https://img.shields.io/github/commit-activity/t/semanticdata/forgetful-notes)
 ![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes)
-![is website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
+![website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
 
-[Eleventy Notes](https://semanticdata.github.io/eleventy-notes/) is a different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden).
+[Eleventy Notes](https://semanticdata.github.io/eleventy-notes/) is a different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden). All content within is tecnically a placeholder since it's just mirroring the files in my current [digital garden](https://forgetfulnotes.com/).
 
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/)
 <!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://eleventy-notes.vercel.app/) -->
 
 ## 📝 Notes
 
-- The `package.json` in the root of the repository simply acts as a mediator between you and the actual `package.json` within the `.app/` directory.
-- Scripts for Prettier have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified by the end-user without the fear of being overwritten by a future update.
+- The new `package.json` in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
+- Scripts for Prettier have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
 
 ## 🛠️ Technology
 
