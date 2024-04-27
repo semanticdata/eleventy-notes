@@ -1,6 +1,6 @@
 ---
 sort: 4
-tags: ["basics"]
+tags: ['basics']
 ---
 
 Congratulations! You have successfully created your first note. Now go ahead and make your notes more useful:

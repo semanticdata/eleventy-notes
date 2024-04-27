@@ -51,16 +51,16 @@ module.exports = defineConfig({
     // - "ref"       Use the reference
     // - "title"     Use the title of the note (fallback fileSlug)
     // - "fileSlug"  Use the file slug
-    autoLabel: "ref",
+    autoLabel: 'ref',
 
     // How to include anchors in the auto label
     // - "arrow"        Use an arrow, e.g. "My Note → Some Heading"
     // - "parentheses"  Use parentheses, e.g. "My Note (Some Heading)"
     // - "hash"         Use a hash, e.g. "My Note#Some Heading"
     // - "none"         Don't include the anchor, e.g. "My Note"
-    anchorLabel: "none",
-  },
-});
+    anchorLabel: 'none'
+  }
+})
 ```
 
 ## How Wikilinks are resolved

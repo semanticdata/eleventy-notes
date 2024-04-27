@@ -5,12 +5,10 @@ Callouts, also known as custom containers, admonitions, or alerts, are a way to 
 Creating a callout is simple. Start a blockquote and add `[!info]` to the first line, where `info` is the type of the callout.
 
 ```md
-> [!info]
-> This is a callout.
+> [!info] This is a callout.
 ```
 
-> [!info]
-> This is a callout.
+> [!info] This is a callout.
 
 ## Changing the title
 
@@ -19,12 +17,10 @@ By default, the callout title is automatically set to match the callout type. Ho
 To change the title, simply add your desired text after the callout type:
 
 ```md
-> [!info] Custom Title Here
-> This is the body of the callout.
+> [!info] Custom Title Here This is the body of the callout.
 ```
 
-> [!info] Custom Title Here
-> This is the body of the callout.
+> [!info] Custom Title Here This is the body of the callout.
 
 In cases where you want to highlight a brief piece of information, you can create a callout with just a title and no body:
 
@@ -41,12 +37,10 @@ You can create foldable callouts, which can be expanded or collapsed by the read
 To create a foldable callout, add a plus `+` or a minus `-` directly after the callout type. A plus sign (`+`) will make the callout expanded by default, while a minus sign (`-`) will make it collapsed by default.
 
 ```md
-> [!info]- Callouts are foldable
-> This is a callout that is collapsed by default.
+> [!info]- Callouts are foldable This is a callout that is collapsed by default.
 ```
 
-> [!info]- Callouts are foldable
-> This is a callout that is collapsed by default.
+> [!info]- Callouts are foldable This is a callout that is collapsed by default.
 
 ## Nested callouts
 
@@ -65,8 +59,7 @@ You can use several callout types and aliases. Each type comes with a different 
 > [!abstract]-
 >
 > ```md
-> > ![abstract]
-> > Lorem ipsum
+> > ![abstract] Lorem ipsum
 > ```
 
 Alias: `summary`, `tldr`
@@ -76,8 +69,7 @@ Alias: `summary`, `tldr`
 > [!info]-
 >
 > ```md
-> > ![info]
-> > Lorem ipsum
+> > ![info] Lorem ipsum
 > ```
 
 ---
@@ -85,8 +77,7 @@ Alias: `summary`, `tldr`
 > [!note]-
 >
 > ```md
-> > ![note]
-> > Lorem ipsum
+> > ![note] Lorem ipsum
 > ```
 
 ---
@@ -94,8 +85,7 @@ Alias: `summary`, `tldr`
 > [!todo]-
 >
 > ```md
-> > ![todo]
-> > Lorem ipsum
+> > ![todo] Lorem ipsum
 > ```
 
 ---
@@ -103,8 +93,7 @@ Alias: `summary`, `tldr`
 > [!tip]-
 >
 > ```md
-> > ![tip]
-> > Lorem ipsum
+> > ![tip] Lorem ipsum
 > ```
 
 Alias: `hint`, `important`
@@ -114,8 +103,7 @@ Alias: `hint`, `important`
 > [!success]-
 >
 > ```md
-> > ![success]
-> > Lorem ipsum
+> > ![success] Lorem ipsum
 > ```
 
 Alias: `check`, `done`
@@ -125,8 +113,7 @@ Alias: `check`, `done`
 > [!question]-
 >
 > ```md
-> > ![question]
-> > Lorem ipsum
+> > ![question] Lorem ipsum
 > ```
 
 Alias: `help`, `faq`
@@ -136,8 +123,7 @@ Alias: `help`, `faq`
 > [!warning]-
 >
 > ```md
-> > ![warning]
-> > Lorem ipsum
+> > ![warning] Lorem ipsum
 > ```
 
 Alias: `caution`, `attention`
@@ -147,8 +133,7 @@ Alias: `caution`, `attention`
 > [!failure]-
 >
 > ```md
-> > ![failure]
-> > Lorem ipsum
+> > ![failure] Lorem ipsum
 > ```
 
 Alias: `fail`, `missing`
@@ -158,8 +143,7 @@ Alias: `fail`, `missing`
 > [!danger]-
 >
 > ```md
-> > ![danger]
-> > Lorem ipsum
+> > ![danger] Lorem ipsum
 > ```
 
 Alias: `error`
@@ -169,8 +153,7 @@ Alias: `error`
 > [!bug]-
 >
 > ```md
-> > ![bug]
-> > Lorem ipsum
+> > ![bug] Lorem ipsum
 > ```
 
 ---
@@ -178,8 +161,7 @@ Alias: `error`
 > [!example]-
 >
 > ```md
-> > ![example]
-> > Lorem ipsum
+> > ![example] Lorem ipsum
 > ```
 
 ---
@@ -187,8 +169,7 @@ Alias: `error`
 > [!quote]-
 >
 > ```md
-> > ![quote]
-> > Lorem ipsum
+> > ![quote] Lorem ipsum
 > ```
 
 Alias: `cite`

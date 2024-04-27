@@ -2,8 +2,7 @@
 tags: [feature]
 ---
 
-The sidebar shows a _Notes_ section with a flat list of all your notes by default.
-You can customize the sidebar to show notes in different sections and groups, filter the notes by their location, name and tags, and display the notes in a tree view.
+The sidebar shows a _Notes_ section with a flat list of all your notes by default. You can customize the sidebar to show notes in different sections and groups, filter the notes by their location, name and tags, and display the notes in a tree view.
 
 ## Sections
 
@@ -11,23 +10,23 @@ The sidebar in Eleventy Notes can be segmented into multiple sections, each cont
 
 ```js
 // /app.js
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+const {defineConfig, createNotesQuery} = require('./.app/app-config')
 
 module.exports = defineConfig({
   sidebar: {
     sections: [
       {
         // A section "Notes" with a single group that shows all notes
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
-            query: createNotesQuery(),
-          },
-        ],
-      },
-    ],
-  },
-});
+            query: createNotesQuery()
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ## Groups
@@ -38,30 +37,30 @@ Groups with assigned labels are collapsible, enhancing the user's navigation exp
 
 ```js
 // /app.js
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+const {defineConfig, createNotesQuery} = require('./.app/app-config')
 
 module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
             // A collapsible group "Posts", expanded by default
-            label: "Posts",
-            query: createNotesQuery(),
+            label: 'Posts',
+            query: createNotesQuery()
           },
           {
             // A collapsible group "Archived", collapsed by default
-            label: "Archived",
+            label: 'Archived',
             expanded: false,
-            query: createNotesQuery(),
-          },
-        ],
-      },
-    ],
-  },
-});
+            query: createNotesQuery()
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ## Sorting
@@ -78,8 +77,7 @@ My Note
 
 ## Queries
 
-The `createNotesQuery()` function helps you to query notes. By default, it selects all notes, sorts them and displays them in a flat list.
-You can provide an object with additional properties to customize the query.
+The `createNotesQuery()` function helps you to query notes. By default, it selects all notes, sorts them and displays them in a flat list. You can provide an object with additional properties to customize the query.
 
 ### Filter by location / name
 
@@ -88,8 +86,8 @@ You can filter notes by their location and name using a RegEx pattern. The patte
 ```js
 createsNotesQuery({
   // Show all notes in the "posts" folder
-  pattern: "/posts/",
-});
+  pattern: '/posts/'
+})
 ```
 
 ### Filter by tags
@@ -99,8 +97,8 @@ You can filter notes by their tags. Notes that have at least one of the specifie
 ```js
 createsNotesQuery({
   // Notes that have at least one of these tags are shown.
-  tags: ["one", "two"],
-});
+  tags: ['one', 'two']
+})
 ```
 
 ### Tree View
@@ -109,8 +107,8 @@ Set the `tree` property to display the notes in a tree view based on their locat
 
 ```js
 createNotesQuery({
-  tree: true,
-});
+  tree: true
+})
 ```
 
 #### Structure
@@ -121,10 +119,10 @@ When the tree view is enabled, the entire folder structure is displayed in the s
 createNotesQuery({
   tree: {
     replace: {
-      "^/Articles/": "",
-    },
-  },
-});
+      '^/Articles/': ''
+    }
+  }
+})
 ```
 
 #### Expansion State
@@ -141,9 +139,9 @@ createNotesQuery({
     expanded: 2,
 
     // Expand all folders that match the given pattern (RegEx pattern)
-    expanded: "/Popular Posts$",
-  },
-});
+    expanded: '/Popular Posts$'
+  }
+})
 ```
 
 Users have the ability to manually expand or collapse folders in the sidebar. This expansion state is preserved when navigating between notes or refreshing the page. However, opening a new tab or closing the browser will reset this state to its default. The folder containing the currently viewed note is always expanded for easy reference.
@@ -182,24 +180,24 @@ For a comprehensive understanding of the query syntax, refer to the [[Queries]] 
 
 ```js
 // /app.js
-const { defineConfig } = require("./.app/app-config");
+const {defineConfig} = require('./.app/app-config')
 
 module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
             query: {
               /* Write your custom query here */
-            },
-          },
-        ],
-      },
-    ],
-  },
-});
+            }
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ## Examples
@@ -213,16 +211,16 @@ module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
-            query: createNotesQuery(),
-          },
-        ],
-      },
-    ],
-  },
-});
+            query: createNotesQuery()
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ### Notes in root
@@ -234,18 +232,18 @@ module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
             query: createNotesQuery({
-              pattern: "^/[^/]+$",
-            }),
-          },
-        ],
-      },
-    ],
-  },
-});
+              pattern: '^/[^/]+$'
+            })
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ### Notes in subfolder
@@ -257,19 +255,19 @@ module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
-            label: "Example",
+            label: 'Example',
             query: createNotesQuery({
-              pattern: "^/Example/",
-            }),
-          },
-        ],
-      },
-    ],
-  },
-});
+              pattern: '^/Example/'
+            })
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ### Virtual Folders
@@ -281,22 +279,22 @@ module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
-            label: "Weekly Notes",
+            label: 'Weekly Notes',
             query: createNotesQuery({
               tree: {
                 replace: {
                   // Turn "/2023-01" into "/2023/01"
-                  "^/([0-9]{4})": "/$1/",
-                },
-              },
-            }),
-          },
-        ],
-      },
-    ],
-  },
-});
+                  '^/([0-9]{4})': '/$1/'
+                }
+              }
+            })
+          }
+        ]
+      }
+    ]
+  }
+})
 ```

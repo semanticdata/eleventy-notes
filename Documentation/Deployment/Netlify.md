@@ -10,10 +10,10 @@ Add a new site to Netlify by clicking on the `New site from Git` button. Select 
 
 Adjust the build settings to the following:
 
-| Setting           | Value                                                      |
-| :---------------- | :--------------------------------------------------------- |
-| Base directory    | _leave empty_                                              |
-| Build command     | `npm install --prefix .app && npm run build --prefix .app` |
-| Publish directory | `.app/dist/`                                               |
+| Setting | Value |
+| :-- | :-- |
+| Base directory | _leave empty_ |
+| Build command | `npm install --prefix .app && npm run build --prefix .app` |
+| Publish directory | `.app/dist/` |
 
 Then click on the _Deploy site_ button. Netlify will now build your notes and deploy them to a public URL. You can find the URL in the _Site overview_ section.

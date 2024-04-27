@@ -11,9 +11,9 @@ Eleventy Notes supports a few different color schemes to choose from. You can ch
 // /app.js
 module.exports = defineConfig({
   theme: {
-    color: "indigo",
-  },
-});
+    color: 'indigo'
+  }
+})
 ```
 
 The supported color schemes are: tomato, red, ruby, crimson, pink, plum, purple, violet, iris, indigo, blue, sky, cyan, teal, jade, mint, green, grass, lime, yellow, amber, orange and brown.

@@ -29,55 +29,55 @@ If you've customized your sidebar configuration, please migrate it to the new fo
 
 ```js
 // /app.js
-const { defineConfig } = require("./.app/app-config");
+const {defineConfig} = require('./.app/app-config')
 
 module.exports = defineConfig({
   sidebar: {
     notes: [
       {
-        label: "My Posts",
-        pattern: "/posts/",
+        label: 'My Posts',
+        pattern: '/posts/'
       },
       {
-        label: "Drafts",
+        label: 'Drafts',
         expanded: false,
-        tags: ["draft"],
-      },
-    ],
-  },
-});
+        tags: ['draft']
+      }
+    ]
+  }
+})
 ```
 
 Below is the equivalent configuration in the **updated** format. The two groups are now encapsulated within a new section titled _Notes_. The `createNotesQuery()` function, which needs to be imported at the beginning of the file, is now responsible for filtering.
 
 ```js
 // /app.js
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+const {defineConfig, createNotesQuery} = require('./.app/app-config')
 
 module.exports = defineConfig({
   sidebar: {
     sections: [
       {
-        label: "Notes",
+        label: 'Notes',
         groups: [
           {
-            label: "My Posts",
+            label: 'My Posts',
             query: createNotesQuery({
-              pattern: "/posts/",
-            }),
+              pattern: '/posts/'
+            })
           },
           {
-            label: "Drafts",
+            label: 'Drafts',
             expanded: false,
             query: createNotesQuery({
-              tags: ["draft"],
-            }),
-          },
-        ],
-      },
-    ],
-  },
-});
+              tags: ['draft']
+            })
+          }
+        ]
+      }
+    ]
+  }
+})
 ```
 
 ## Version 0.22.0
@@ -107,20 +107,16 @@ module.exports = defineConfig({
 - ✨ **URL Prefix**: The url prefix `/n` can now be configured via configuration file.
 - ✨ **Improved search**: It now includes an excerpt and highlights the search term.
 - ⚡️ **Performance**: Rebuilding the site after a change when running in development mode is now faster.
-- 💥 **Removed notes page**: The notes page `/n` has been removed. We think the flat list of all notes
-  was not very useful for most users as it did not provide any context (e.g. in which folder the note is located).
-  A properly configured sidebar, the tags pages and the search are much more useful for navigating your notes.
-  You can create your own notes page if you still want to have one.
-- 💥 **New configuration file**: The previous JSON configuration `app.json` has been replaced with a JavaScript configuration `app.js`.
-  If you have an existing configuration, you need to migrate it to the new format. Rename the file to `app.js` and replace the content with the following:
+- 💥 **Removed notes page**: The notes page `/n` has been removed. We think the flat list of all notes was not very useful for most users as it did not provide any context (e.g. in which folder the note is located). A properly configured sidebar, the tags pages and the search are much more useful for navigating your notes. You can create your own notes page if you still want to have one.
+- 💥 **New configuration file**: The previous JSON configuration `app.json` has been replaced with a JavaScript configuration `app.js`. If you have an existing configuration, you need to migrate it to the new format. Rename the file to `app.js` and replace the content with the following:
 
   ```js
-  const { defineConfig } = require(".app/app-config");
+  const {defineConfig} = require('.app/app-config')
 
   module.exports = defineConfig({
     // Put your existing configuration here, e.g.
-    title: "My Notes",
-  });
+    title: 'My Notes'
+  })
   ```
 
   If you've used the `$schema` property, you can remove it and instead add a `// @ts-check` comment at the top of the file.

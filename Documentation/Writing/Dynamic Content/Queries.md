@@ -33,32 +33,32 @@ myQuery:
     # Format: ["<property>", "<operator>", <value>]
 
     # Title must match the given RegEx pattern
-    - ["title", "matches", "^Book:"]
+    - ['title', 'matches', '^Book:']
 
       # Note must have the tag "book"
-    - ["tags", "includes", "book"]
+    - ['tags', 'includes', 'book']
 ```
 
 #### Operators
 
 The following operators are available:
 
-| Operator               | Description                                             |
-| :--------------------- | :------------------------------------------------------ |
-| `isEmpty`              | The property must be empty                              |
-| `isNotEmpty`           | The property must not be empty                          |
-| `isEqual`              | The property must be equal to the value                 |
-| `isNotEqual`           | The property must not be equal to the value             |
-| `isLessThan`           | The property must be less than the value                |
-| `isLessThanOrEqual`    | The property must be less than or equal to the value    |
-| `isGreaterThan`        | The property must be greater than the value             |
+| Operator | Description |
+| :-- | :-- |
+| `isEmpty` | The property must be empty |
+| `isNotEmpty` | The property must not be empty |
+| `isEqual` | The property must be equal to the value |
+| `isNotEqual` | The property must not be equal to the value |
+| `isLessThan` | The property must be less than the value |
+| `isLessThanOrEqual` | The property must be less than or equal to the value |
+| `isGreaterThan` | The property must be greater than the value |
 | `isGreaterThanOrEqual` | The property must be greater than or equal to the value |
-| `includes`             | The property must include the value                     |
-| `doesNotInclude`       | The property must not include the value                 |
-| `includesAnyOf`        | The property must include any of the values             |
-| `includesAllOf`        | The property must include all the values                |
-| `includesNoneOf`       | The property must include none of the values            |
-| `matches`              | The property must match the given RegEx pattern         |
+| `includes` | The property must include the value |
+| `doesNotInclude` | The property must not include the value |
+| `includesAnyOf` | The property must include any of the values |
+| `includesAllOf` | The property must include all the values |
+| `includesNoneOf` | The property must include none of the values |
+| `matches` | The property must match the given RegEx pattern |
 
 #### And / Or
 
@@ -69,11 +69,11 @@ myQuery:
   filter:
     or:
       # either condition must match
-      - ["tags", "includes", "book"]
+      - ['tags', 'includes', 'book']
       - and:
           # both conditions must match
-          - ["title", "matches", "^Book:"]
-          - ["tags", "isEmpty"]
+          - ['title', 'matches', '^Book:']
+          - ['tags', 'isEmpty']
 ```
 
 The example above filters all notes that have the tag `book` OR that have the title `Book:` AND no tags.
@@ -89,10 +89,10 @@ myQuery:
     # Format: ["<property>", "<direction>"]
 
     # Sort by the "sort" data property in ascending order
-    - ["data.sort", "asc"]
+    - ['data.sort', 'asc']
 
     # Sort by the "title" property in descending order
-    - ["title", "desc"]
+    - ['title', 'desc']
 ```
 
 ### Tree
@@ -108,31 +108,31 @@ anotherQuery:
   tree:
     # The property that contains the path
     # default: filePathStem
-    pathProp: "data.tree"
+    pathProp: 'data.tree'
 
     # A list of path replacements (optional)
     replace:
       # Replace the "Demo/" prefix with an empty string
-      "^/Demo/": ""
+      '^/Demo/': ''
 ```
 
 If `tree` is enabled, it will transform each item in the collection into a tree node. The tree node has the following properties:
 
 ```js
-[
+;[
   {
     // A unique key for the node
-    $treeKey: "my-folder--my-note",
+    $treeKey: 'my-folder--my-note',
 
     // The name of the current path segment
-    $treeName: "My Note",
+    $treeName: 'My Note',
 
     // The list of child nodes
-    children: [],
+    children: []
 
     // ... any existing properties of the item
-  },
-];
+  }
+]
 ```
 
 ### Offset and Limit

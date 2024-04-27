@@ -18,9 +18,7 @@ My note without a panel
 
 ## Hiding sections
 
-Add a `panel` property to your global [[Configuration file]] `app.js` to configure the
-sections of the panel. All sections are enabled by default (if they have content) but you
-can disable them by setting the respective property to `false`.
+Add a `panel` property to your global [[Configuration file]] `app.js` to configure the sections of the panel. All sections are enabled by default (if they have content) but you can disable them by setting the respective property to `false`.
 
 ```json
 // /app.js

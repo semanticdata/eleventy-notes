@@ -1,6 +1,6 @@
 ---
 sort: 2
-tags: ["basics"]
+tags: ['basics']
 ---
 
 Now that the template is ready, you can create your first note. Go ahead and create a new file `My Note.md` in the root of the project.

@@ -3,10 +3,10 @@ sort: 1
 tags: [deployment]
 templateEngineOverride: njk,md
 cloudServiceNotes:
-  sort: ["data.sort"]
+  sort: ['data.sort']
   filter:
-    - ["tags", "includes", "deployment"]
-    - ["data.isCloudService", "isEqual", true]
+    - ['tags', 'includes', 'deployment']
+    - ['data.isCloudService', 'isEqual', true]
 ---
 
 Open the terminal and navigate to your project folder. Then run the following command:

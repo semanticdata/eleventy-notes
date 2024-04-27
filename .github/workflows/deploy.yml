@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 env:
-  ELEVENTY_NOTES_PATH_PREFIX: "eleventy-notes"
+  ELEVENTY_NOTES_PATH_PREFIX: 'eleventy-notes'
 
 jobs:
   build:

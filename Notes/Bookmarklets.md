@@ -16,14 +16,14 @@ Alternatively, you may copy the code for a bookmarklet and create your own. If y
 ```js
 javascript: var evl,
   em,
-  expr = prompt("Formula... (eg: 2*3 + 7/8)", "")
+  expr = prompt('Formula... (eg: 2*3 + 7/8)', '')
 with (Math)
   try {
     evl = parseFloat(eval(expr))
     if (isNaN(evl)) {
-      throw Error("Not a number!")
+      throw Error('Not a number!')
     }
-    void prompt("Result:", evl)
+    void prompt('Result:', evl)
   } catch (em) {
     alert(em)
   }
@@ -38,9 +38,9 @@ javascript: (function () {
   var count = 0,
     text,
     dv
-  text = prompt("Search phrase:", "")
+  text = prompt('Search phrase:', '')
   if (text == null || text.length == 0) return
-  hlColor = prompt("Color:", "yellow")
+  hlColor = prompt('Color:', 'yellow')
   dv = document.defaultView
   function searchWithinNode(node, te, len) {
     var pos, skip, spannode, middlebit, endbit, middleclone
@@ -48,7 +48,7 @@ javascript: (function () {
     if (node.nodeType == 3) {
       pos = node.data.toUpperCase().indexOf(te)
       if (pos >= 0) {
-        spannode = document.createElement("SPAN")
+        spannode = document.createElement('SPAN')
         spannode.style.backgroundColor = hlColor
         middlebit = node.splitText(pos)
         endbit = middlebit.splitText(len)
@@ -61,8 +61,8 @@ javascript: (function () {
     } else if (
       node.nodeType == 1 &&
       node.childNodes &&
-      node.tagName.toUpperCase() != "SCRIPT" &&
-      node.tagName.toUpperCase != "STYLE"
+      node.tagName.toUpperCase() != 'SCRIPT' &&
+      node.tagName.toUpperCase != 'STYLE'
     ) {
       for (var child = 0; child < node.childNodes.length; ++child) {
         child = child + searchWithinNode(node.childNodes[child], te, len)
@@ -73,13 +73,13 @@ javascript: (function () {
   window.status = "Searching for '" + text + "'..."
   searchWithinNode(document.body, text.toUpperCase(), text.length)
   window.status =
-    "Found " +
+    'Found ' +
     count +
-    " occurrence" +
-    (count == 1 ? "" : "s") +
-    " of %27" +
+    ' occurrence' +
+    (count == 1 ? '' : 's') +
+    ' of %27' +
     text +
-    "%27."
+    '%27.'
 })()
 ```
 
@@ -89,18 +89,18 @@ javascript: (function () {
 
 ```js
 javascript: ((b) =>
-  fetch("https://api.github.com/repos/" + b[1] + "/commits?sha=" + (b[2] || ""))
-    .then((c) => Promise.all([c.headers.get("link"), c.json()]))
+  fetch('https://api.github.com/repos/' + b[1] + '/commits?sha=' + (b[2] || ''))
+    .then((c) => Promise.all([c.headers.get('link'), c.json()]))
     .then((c) => {
       if (c[0]) {
-        var d = c[0].split(",")[1].split(";")[0].slice(2, -1)
+        var d = c[0].split(',')[1].split(';')[0].slice(2, -1)
         return fetch(d).then((e) => e.json())
       }
       return c[1]
     })
     .then((c) => c.pop().html_url)
     .then((c) => (window.location = c)))(
-  window.location.pathname.match(/\/([^\/]+\/[^\/]+)(?:\/tree\/([^\/]+))?/),
+  window.location.pathname.match(/\/([^\/]+\/[^\/]+)(?:\/tree\/([^\/]+))?/)
 )
 ```
 
@@ -109,7 +109,7 @@ javascript: ((b) =>
 <a href="javascript:(function()%7Bjavascript%3Avoid(document.title%3Dprompt('Enter%20page%20title')%20%3F%3F%20document.title)%7D)()%3B">Tab Title Editor</a>
 
 ```js
-javascript: void (document.title = prompt("Enter page title") ?? document.title)
+javascript: void (document.title = prompt('Enter page title') ?? document.title)
 ```
 
 ### Tab Title and Icon Editor
@@ -135,14 +135,14 @@ javascript: void(() => {    open('https://chart.apis.google.com/chart?cht=qr&chs
 ```js
 javascript: (() => {
   var url =
-    "https://archive.is/" +
+    'https://archive.is/' +
     encodeURI(
       window.location.protocol +
-        "//" +
+        '//' +
         window.location.hostname +
-        window.location.pathname,
+        window.location.pathname
     )
-  window.open(url, "_blank")
+  window.open(url, '_blank')
 })()
 ```
 
@@ -176,27 +176,27 @@ javascript:(function()%7B%2F%2F%20Water.css%20Bookmarklet%0A%2F%2F%20-----------
 
 ```js
 javascript: (function () {
-  let domStyle = document.getElementById("domStylee")
+  let domStyle = document.getElementById('domStylee')
   if (domStyle) {
     document.body.removeChild(domStyle)
     return
   }
-  domStyle = document.createElement("style")
-  domStyle.setAttribute("id", "domStylee")
+  domStyle = document.createElement('style')
+  domStyle.setAttribute('id', 'domStylee')
   domStyle.append(
     [
-      "* { color:#0f0!important;outline:solid #f00 1px!important; background-color: rgba(255,0,0,.2) !important; }",
+      '* { color:#0f0!important;outline:solid #f00 1px!important; background-color: rgba(255,0,0,.2) !important; }'
     ],
-    ["* * { background-color: rgba(0,255,0,.2) !important; }"],
-    ["* * * { background-color: rgba(0,0,255,.2) !important; }"],
-    ["* * * * { background-color: rgba(255,0,255,.2) !important; }"],
-    ["* * * * * { background-color: rgba(0,255,255,.2) !important; }"],
-    ["* * * * * * { background-color: rgba(255,255,0,.2) !important; }"],
-    ["* * * * * * * { background-color: rgba(255,0,0,.2) !important; }"],
-    ["* * * * * * * * { background-color: rgba(0,255,0,.2) !important; }"],
+    ['* * { background-color: rgba(0,255,0,.2) !important; }'],
+    ['* * * { background-color: rgba(0,0,255,.2) !important; }'],
+    ['* * * * { background-color: rgba(255,0,255,.2) !important; }'],
+    ['* * * * * { background-color: rgba(0,255,255,.2) !important; }'],
+    ['* * * * * * { background-color: rgba(255,255,0,.2) !important; }'],
+    ['* * * * * * * { background-color: rgba(255,0,0,.2) !important; }'],
+    ['* * * * * * * * { background-color: rgba(0,255,0,.2) !important; }'],
     [
-      "* * * * * * * * * { background-color: rgba(0,0,255,.2) !important; }",
-    ].join(),
+      '* * * * * * * * * { background-color: rgba(0,0,255,.2) !important; }'
+    ].join()
   )
   document.body.appendChild(domStyle)
 })()
@@ -235,17 +235,17 @@ javascript:(function()%7Bvar%20body%20%3D%20document.getElementsByTagName('body'
 <a href="javascript:(function()%7Bjavascript%3A%20s%20%3D%20document.getElementsByTagName('STYLE')%3B%20ex%20%3D%20document.getElementsByTagName('LINK')%3B%20d%20%3D%20window.open().document%3B%20%2F*set%20base%20href*%2F%20d.open()%3B%20d.close()%3B%20b%20%3D%20d.body%3B%20%20function%20trim(s)%20%7B%20return%20s.replace(%2F%5E%5Cs*%5Cn%2F%2C%20'').replace(%2F%5Cs*%24%2F%2C%20'')%3B%20%7D%3B%20%20function%20iff(a%2C%20b%2C%20c)%20%7B%20return%20b%20%3F%20a%20%2B%20b%20%2B%20c%20%3A%20''%3B%20%7D%20%20function%20add(h)%20%7B%20b.appendChild(h)%3B%20%7D%20%20function%20makeTag(t)%20%7B%20return%20d.createElement(t)%3B%20%7D%20%20function%20makeText(tag%2C%20text)%20%7B%20t%20%3D%20makeTag(tag)%3B%20t.appendChild(d.createTextNode(text))%3B%20return%20t%3B%20%7D%20add(makeText('style'%2C%20'iframe%7Bwidth%3A100%25%3Bheight%3A18em%3Bborder%3A1px%20solid%3B'))%3B%20add(makeText('h3'%2C%20d.title%20%3D%20'Style%20sheets%20in%20'%20%2B%20location.href))%3B%20for%20(i%20%3D%200%3B%20i%20%3C%20s.length%3B%20%2B%2Bi)%20%7B%20add(makeText('h4'%2C%20'Inline%20style%20sheet'%20%2B%20iff('%20title%3D%22'%2C%20s%5Bi%5D.title%2C%20'%22')))%3B%20add(makeText('pre'%2C%20trim(s%5Bi%5D.innerHTML)))%3B%20%7D%20for%20(i%20%3D%200%3B%20i%20%3C%20ex.length%3B%20%2B%2Bi)%20%7B%20rs%20%3D%20ex%5Bi%5D.rel.split('%20')%3B%20for%20(j%20%3D%200%3B%20j%20%3C%20rs.length%3B%20%2B%2Bj)%20if%20(rs%5Bj%5D.toLowerCase()%20%3D%3D%20'stylesheet')%20%7B%20add(makeText('h4'%2C%20'link%20rel%3D%22'%20%2B%20ex%5Bi%5D.rel%20%2B%20'%22%20href%3D%22'%20%2B%20ex%5Bi%5D.href%20%2B%20'%22'%20%2B%20iff('%20title%3D%22'%2C%20ex%5Bi%5D.title%2C%20'%22')))%3B%20iframe%20%3D%20makeTag('iframe')%3B%20iframe.src%20%3D%20ex%5Bi%5D.href%3B%20add(iframe)%3B%20break%3B%20%7D%20%7D%20void%200%7D)()%3B">Show Stylesheets</a>
 
 ```js
-javascript: s = document.getElementsByTagName("STYLE")
-ex = document.getElementsByTagName("LINK")
+javascript: s = document.getElementsByTagName('STYLE')
+ex = document.getElementsByTagName('LINK')
 d = window.open().document
 /*set base href*/ d.open()
 d.close()
 b = d.body
 function trim(s) {
-  return s.replace(/^\s*\n/, "").replace(/\s*$/, "")
+  return s.replace(/^\s*\n/, '').replace(/\s*$/, '')
 }
 function iff(a, b, c) {
-  return b ? a + b + c : ""
+  return b ? a + b + c : ''
 }
 function add(h) {
   b.appendChild(h)
@@ -258,28 +258,28 @@ function makeText(tag, text) {
   t.appendChild(d.createTextNode(text))
   return t
 }
-add(makeText("style", "iframe{width:100%;height:18em;border:1px solid;"))
-add(makeText("h3", (d.title = "Style sheets in " + location.href)))
+add(makeText('style', 'iframe{width:100%;height:18em;border:1px solid;'))
+add(makeText('h3', (d.title = 'Style sheets in ' + location.href)))
 for (i = 0; i < s.length; ++i) {
-  add(makeText("h4", "Inline style sheet" + iff(' title="', s[i].title, '"')))
-  add(makeText("pre", trim(s[i].innerHTML)))
+  add(makeText('h4', 'Inline style sheet' + iff(' title="', s[i].title, '"')))
+  add(makeText('pre', trim(s[i].innerHTML)))
 }
 for (i = 0; i < ex.length; ++i) {
-  rs = ex[i].rel.split(" ")
+  rs = ex[i].rel.split(' ')
   for (j = 0; j < rs.length; ++j)
-    if (rs[j].toLowerCase() == "stylesheet") {
+    if (rs[j].toLowerCase() == 'stylesheet') {
       add(
         makeText(
-          "h4",
+          'h4',
           'link rel="' +
             ex[i].rel +
             '" href="' +
             ex[i].href +
             '"' +
-            iff(' title="', ex[i].title, '"'),
-        ),
+            iff(' title="', ex[i].title, '"')
+        )
       )
-      iframe = makeTag("iframe")
+      iframe = makeTag('iframe')
       iframe.src = ex[i].href
       add(iframe)
       break
@@ -302,19 +302,19 @@ javascript:location.href='http://cssstats.com/stats?url=%27+window.location.href
 
 ```js
 javascript: (function () {
-  var el = document.createElement("script")
-  el.type = "text/javascript"
+  var el = document.createElement('script')
+  el.type = 'text/javascript'
   el.src =
-    "https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"
+    'https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js'
   el.onerror = function () {
     alert(
-      'Looks like the Content Security Policy directive is blocking the use of bookmarklets\n\nYou can copy and paste the content of:\n\n"https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"\n\ninto your console instead\n\n(link is in console already)',
+      'Looks like the Content Security Policy directive is blocking the use of bookmarklets\n\nYou can copy and paste the content of:\n\n"https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"\n\ninto your console instead\n\n(link is in console already)'
     )
     console.log(
-      "https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js",
+      'https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js'
     )
   }
-  document.getElementsByTagName("body")[0].appendChild(el)
+  document.getElementsByTagName('body')[0].appendChild(el)
 })()
 ```
 
@@ -333,7 +333,7 @@ javascript: (function () {
   }
   function getFirstAvailableFont(fonts) {
     for (let font of fonts) {
-      let fontName = font.trim().replace(/"/g, "")
+      let fontName = font.trim().replace(/"/g, '')
       let isAvailable = document.fonts.check(`16px ${fontName}`)
       if (!isAvailable) continue
       return fontName
@@ -341,10 +341,10 @@ javascript: (function () {
   }
   let node = getSelectedNode()
   if (!node) {
-    window.alert("Please select a string of text and try again.")
+    window.alert('Please select a string of text and try again.')
     return
   }
-  let fonts = getNodeFontStack(node).split(",")
+  let fonts = getNodeFontStack(node).split(',')
   let firstAvailableFont = getFirstAvailableFont(fonts)
   window.alert(`Font: ${firstAvailableFont}`)
 })()
@@ -356,12 +356,12 @@ javascript: (function () {
 
 ```js
 javascript: void (function (d) {
-  var e = d.createElement("script")
-  e.setAttribute("type", "text/javascript")
-  e.setAttribute("charset", "UTF-8")
+  var e = d.createElement('script')
+  e.setAttribute('type', 'text/javascript')
+  e.setAttribute('charset', 'UTF-8')
   e.setAttribute(
-    "src",
-    "//www.typesample.com/assets/typesample.js?r=" + Math.random() * 99999999,
+    'src',
+    '//www.typesample.com/assets/typesample.js?r=' + Math.random() * 99999999
   )
   d.body.appendChild(e)
 })(document)
@@ -373,12 +373,12 @@ javascript: void (function (d) {
 
 ```js
 javascript: void (function (d) {
-  var e = d.createElement("script")
-  e.setAttribute("type", "text/javascript")
-  e.setAttribute("charset", "UTF-8")
+  var e = d.createElement('script')
+  e.setAttribute('type', 'text/javascript')
+  e.setAttribute('charset', 'UTF-8')
   e.setAttribute(
-    "src",
-    "//www.typesample.com/assets/typesample.js?r=" + Math.random() * 99999999,
+    'src',
+    '//www.typesample.com/assets/typesample.js?r=' + Math.random() * 99999999
   )
   d.body.appendChild(e)
 })(document)
@@ -398,16 +398,16 @@ javascript:(function()%7Bvar%20d=document,s=d.createElement('script'),doit=funct
 
 ```js
 javascript: (function () {
-  document.designMode = "on"
-  const s = document.createElement("style")
+  document.designMode = 'on'
+  const s = document.createElement('style')
   s.innerHTML = `body::before{content:'%E2%9C%8F%EF%B8%8F Edit Mode (ESC to end)';z-index:64;padding:1em;background:white;color:black;display:block;margin:1em;font-size:30px;border:5px solid green;}`
   document.body.appendChild(s)
   window.scrollTo(0, 0)
-  document.addEventListener("keyup", (e) => {
-    if (e.key === "Escape") {
-      document.designMode = "off"
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+      document.designMode = 'off'
       s.remove()
-      document.removeEventListener("keyup", e)
+      document.removeEventListener('keyup', e)
     }
   })
 })()
@@ -418,8 +418,8 @@ javascript: (function () {
 <a href="javascript:(function()%7Bjavascript%3A%20document.body.contentEditable%20%3D%20'true'%3B%20document.designMode%20%3D%20'on'%3B%20void%200%7D)()%3B">Edit Current Page</a>
 
 ```js
-javascript: document.body.contentEditable = "true"
-document.designMode = "on"
+javascript: document.body.contentEditable = 'true'
+document.designMode = 'on'
 void 0
 ```
 
@@ -429,7 +429,7 @@ void 0
 
 ```js
 javascript: void (() => {
-  prompt("User agent:", navigator.userAgent)
+  prompt('User agent:', navigator.userAgent)
 })()
 ```
 
@@ -447,19 +447,19 @@ javascript:(function () %7Bvar v %3D document.createElement(%27script%27)%3Bv.sr
 
 ```js
 javascript: (function () {
-  var el = document.createElement("script")
-  el.type = "text/javascript"
+  var el = document.createElement('script')
+  el.type = 'text/javascript'
   el.src =
-    "https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"
+    'https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js'
   el.onerror = function () {
     alert(
-      'Looks like the Content Security Policy directive is blocking the use of bookmarklets\n\nYou can copy and paste the content of:\n\n"https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"\n\ninto your console instead\n\n(link is in console already)',
+      'Looks like the Content Security Policy directive is blocking the use of bookmarklets\n\nYou can copy and paste the content of:\n\n"https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js"\n\ninto your console instead\n\n(link is in console already)'
     )
     console.log(
-      "https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js",
+      'https://micmro.github.io/performance-bookmarklet/dist/performanceBookmarklet.min.js'
     )
   }
-  document.getElementsByTagName("body")[0].appendChild(el)
+  document.getElementsByTagName('body')[0].appendChild(el)
 })()
 ```
 
@@ -470,34 +470,34 @@ javascript: (function () {
 ```js
 javascript: (function () {
   var d = document,
-    e = d.getElementById("wappalyzer-container")
+    e = d.getElementById('wappalyzer-container')
   if (e !== null) {
     d.body.removeChild(e)
   }
-  var u = "https://www.wappalyzer.com/",
+  var u = 'https://www.wappalyzer.com/',
     t = new Date().getTime(),
-    c = d.createElement("div"),
-    p = d.createElement("div"),
-    l = d.createElement("link"),
-    s = d.createElement("script")
-  c.setAttribute("id", "wappalyzer-container")
-  l.setAttribute("rel", "stylesheet")
-  l.setAttribute("href", u + "css/bookmarklet.css")
+    c = d.createElement('div'),
+    p = d.createElement('div'),
+    l = d.createElement('link'),
+    s = d.createElement('script')
+  c.setAttribute('id', 'wappalyzer-container')
+  l.setAttribute('rel', 'stylesheet')
+  l.setAttribute('href', u + 'css/bookmarklet.css')
   d.head.appendChild(l)
-  p.setAttribute("id", "wappalyzer-pending")
+  p.setAttribute('id', 'wappalyzer-pending')
   p.setAttribute(
-    "style",
-    "background-image: url(" + u + "images/spinner.gif) !important",
+    'style',
+    'background-image: url(' + u + 'images/spinner.gif) !important'
   )
   c.appendChild(p)
-  s.setAttribute("src", u + "bookmarklet/wappalyzer.js")
+  s.setAttribute('src', u + 'bookmarklet/wappalyzer.js')
   s.onload = function () {
     window.wappalyzer = new Wappalyzer()
-    s = d.createElement("script")
-    s.setAttribute("src", u + "bookmarklet/apps.js")
+    s = d.createElement('script')
+    s.setAttribute('src', u + 'bookmarklet/apps.js')
     s.onload = function () {
-      s = d.createElement("script")
-      s.setAttribute("src", u + "bookmarklet/driver.js")
+      s = d.createElement('script')
+      s.setAttribute('src', u + 'bookmarklet/driver.js')
       c.appendChild(s)
     }
     c.appendChild(s)
@@ -513,7 +513,7 @@ javascript: (function () {
 
 ```js
 javascript: void open(
-  "https://builtwith.com/?" + encodeURIComponent(location.href),
+  'https://builtwith.com/?' + encodeURIComponent(location.href)
 )
 ```
 
@@ -523,8 +523,8 @@ javascript: void open(
 
 ```js
 javascript: (function () {
-  var el = document.createElement("script")
-  el.src = "https://zeman.github.io/perfmap/perfmap.js"
+  var el = document.createElement('script')
+  el.src = 'https://zeman.github.io/perfmap/perfmap.js'
   document.body.appendChild(el)
 })()
 ```
@@ -545,7 +545,7 @@ javascript:(function(){;!function(e)%7Bvar%20t=%7B%7D;function%20n(a)%7Bif(t%5Ba
 javascript: (function () {
   var i, x
   for (i = 0; (x = document.links[i]); ++i)
-    x.style.color = ["blue", "red", "orange"][sim(x, location)]
+    x.style.color = ['blue', 'red', 'orange'][sim(x, location)]
   function sim(a, b) {
     if (a.hostname != b.hostname) return 0
     if (fixPath(a.pathname) != fixPath(b.pathname) || a.search != b.search)
@@ -553,8 +553,8 @@ javascript: (function () {
     return 2
   }
   function fixPath(p) {
-    p = (p.charAt(0) == "/" ? "" : "/") + p
-    /*many browsers*/ p = p.split("?")[0]
+    p = (p.charAt(0) == '/' ? '' : '/') + p
+    /*many browsers*/ p = p.split('?')[0]
     /*opera*/ return p
   }
 })()

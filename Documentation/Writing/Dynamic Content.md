@@ -38,8 +38,8 @@ Then add a new front matter property that contains the query:
 ```md
 ---
 featuredNotes:
-  filter: [["data.featured", "isEqual", true]]
-  sort: [["data.featuredOrder", "asc"], ["title", "asc"]]
+  filter: [['data.featured', 'isEqual', true]]
+  sort: [['data.featuredOrder', 'asc'], ['title', 'asc']]
 ---
 
 # Featured Notes

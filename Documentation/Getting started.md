@@ -1,6 +1,6 @@
 ---
 sort: 1
-tags: ["basics"]
+tags: ['basics']
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 sort: 1
-tags: ["writing"]
+tags: ['writing']
 ---
 
 All your notes are plain text files using `.md` as file extension. You can use the default Markdown syntax and front matter.
