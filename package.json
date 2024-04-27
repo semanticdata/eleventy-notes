@@ -1,6 +1,8 @@
 {
   "scripts": {
+    "i": "npm run windows",
+    "install": "npm run windows",
     "start": "npm run windows",
-    "windows": "cd .add && npm-run-all clean -p css:watch js:watch 11ty:serve"
+    "windows": "cd .app && npm-run-all clean -p css:watch js:watch 11ty:serve"
   }
 }
