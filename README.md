@@ -6,7 +6,7 @@
 ![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes)
 ![is website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
 
-A different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden).
+[Eleventy Notes](https://semanticdata.github.io/eleventy-notes/) is a different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden).
 
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/)
 <!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://eleventy-notes.vercel.app/) -->

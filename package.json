@@ -2,7 +2,14 @@
   "scripts": {
     "i": "cd .app && npm i",
     "install": "cd .app && npm install",
+    "build": "cd .app && npm run build",
+    "update": "cd .app && npm update",
     "start": "npm run windows",
-    "windows": "cd .app && npm start"
+    "windows": "cd .app && npm start",
+    "check": "cd .ap && npm run check",
+    "format": "cd .app && npm run format"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
