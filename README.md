@@ -15,6 +15,8 @@
 
 The `package.json` in the root of the repository simply acts as a mediator between you and the actual `package.json` within the `.app/` directory.
 
+Scripts for Prettier have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified by the end-user without the fear of being overwritten by a future update.
+
 ## 🛠️ Technology
 
 The site uses various technologies cobbled together. Here's some of them:

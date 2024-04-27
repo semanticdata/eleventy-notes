@@ -6,10 +6,7 @@
     "update": "cd .app && npm update",
     "start": "npm run windows",
     "windows": "cd .app && npm start",
-    "check": "cd .ap && npm run check",
+    "check": "cd .app && npm run check",
     "format": "cd .app && npm run format"
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5"
   }
 }
