@@ -4,7 +4,8 @@
   },
   "editor.wrappingIndent": "indent",
   "editor.overviewRulerBorder": false,
-  // "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Dracula",
+  "peacock.color": "#322549",
   "[markdown]": {
     "editor.quickSuggestions": {
       "comments": "on",
@@ -30,6 +31,5 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#32254999",
     "titleBar.inactiveForeground": "#e7e7e799"
-  },
-  "peacock.color": "#322549"
+  }
 }

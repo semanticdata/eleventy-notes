@@ -1,17 +1,31 @@
-# Eleventy Notes
+# 📒 Eleventy Notes
 
-**Eleventy Notes is currently in beta. If you find any bugs or have any suggestions, please [open an issue](https://github.com/rothsandro/eleventy-notes/issues).**
+![code size](https://img.shields.io/github/languages/code-size/semanticdata/forgetful-notes)
+![repository size](https://img.shields.io/github/repo-size/semanticdata/forgetful-notes)
+![commits](https://img.shields.io/github/commit-activity/t/semanticdata/forgetful-notes)
+![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes)
+![is website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
 
-Eleventy Notes is an opinionated template for publishing your personal notes, documentation, or even your blog! Built with [Eleventy](https://11ty.dev/), the powerful static site generator, Eleventy Notes is packed with features you'll love.
+A different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden).
 
-With Eleventy Notes, you can:
+[![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/)
+<!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://forgetful-notes.vercel.app/) -->
 
-- ✅ Create Wikilinks and backlinks to easily navigate your content
-- ✅ Organize your content with Tags for easy searching and filtering
-- ✅ Quickly find what you need with a client-side search
-- ✅ Choose from two Themes and multiple color schemes to match your style
-- ✅ Customize your Sidebar with support for folders and subfolders
-- ✅ Enjoy a lightweight and fast experience, with minimal JavaScript
-- ... and much more!
+## 🛠️ Technology
 
-Whether you're a blogger, developer, or just someone who loves to write, Eleventy Notes has everything you need to publish your content. So what are you waiting for? Get started today by reading our [Getting started](https://eleventy-notes.sandroroth.com/n/getting-started/) guide and start sharing your thoughts with the world!
+The site uses various technologies cobbled together. Here's some of them:
+
+- [11ty](https://www.11ty.dev/): a simpler static site generator.
+- [Alpine.js](https://alpinejs.dev/): lightweight, JavaScript framework.
+- [Parcel](https://parceljs.org/): zero configuration build tool for the web.
+- [Prettier](https://github.com/prettier/prettier): an opinionated code formatter.
+- [Sass](https://github.com/sass/sass): because CSS can be fun.
+<!-- - [Husky](https://github.com/typicode/husky): Git hooks manager. -->
+
+## 💜 Attributions
+
+This project is based in [rothsandro/eleventy-notes](https://github.com/rothsandro/eleventy-notes).
+
+## © License
+
+Source code in this repository is available under the [MIT License](LICENSE).
