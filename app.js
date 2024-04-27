@@ -1,114 +1,114 @@
 // @ts-check
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+const {defineConfig, createNotesQuery} = require('./.app/app-config')
 
 module.exports = defineConfig({
-  title: "Eleventy Notes",
+  title: 'Eleventy Notes',
   description:
-    "A simple, lightweight, and flexible note-taking template for Eleventy.",
+    'A simple, lightweight, and flexible note-taking template for Eleventy.',
   editThisNote: {
-    url: "https://github.com/semanticdata/eleventy-notes/edit/{{branch}}/{{file}}",
+    url: 'https://github.com/semanticdata/eleventy-notes/edit/{{branch}}/{{file}}'
   },
   customProperties: {
     properties: [
       {
-        path: "props",
+        path: 'props',
         options: {
           date: {
-            locale: "en-US",
-          },
-        },
-      },
-    ],
+            locale: 'en-US'
+          }
+        }
+      }
+    ]
   },
   sidebar: {
     links: [
       {
-        url: "https://github.com/semanticdata/eleventy-notes",
-        label: "GitHub / Support",
-        icon: "github",
+        url: 'https://github.com/semanticdata/eleventy-notes',
+        label: 'GitHub / Support',
+        icon: 'github'
       },
       {
-        url: "https://www.buymeacoffee.com/sandroroth",
-        label: "Buy me a coffee",
-        icon: "coffee",
-      },
+        url: 'https://www.buymeacoffee.com/sandroroth',
+        label: 'Buy me a coffee',
+        icon: 'coffee'
+      }
     ],
     sections: [
       {
-        label: "Introduction",
+        label: 'Notes',
         groups: [
           {
+            label: 'All Notes',
             query: createNotesQuery({
-              pattern: "^/[^/]+$",
-            }),
-          },
-        ],
+              pattern: '^/Notes/[^/]+$'
+            })
+          }
+        ]
       },
       {
-        label: "Guides",
+        label: 'Introduction',
         groups: [
           {
-            label: "Writing Notes",
             query: createNotesQuery({
-              pattern: "^/Writing/",
+              pattern: '^/Documentation/[^/]+$'
+            })
+          }
+        ]
+      },
+      {
+        label: 'Guides',
+        groups: [
+          {
+            label: 'Writing Notes',
+            query: createNotesQuery({
+              pattern: '^/Documentation/Writing/',
               tree: {
                 replace: {
-                  "^/\\w+": "",
-                },
-              },
-            }),
+                  '^/\\w+': ''
+                }
+              }
+            })
           },
           {
-            label: "Organizing Notes",
+            label: 'Organizing Notes',
             query: createNotesQuery({
-              pattern: "^/Organizing/",
-            }),
+              pattern: '^/Documentation/Organizing/'
+            })
           },
           {
-            label: "Core Features",
+            label: 'Core Features',
             query: createNotesQuery({
-              pattern: "^/Features/",
+              pattern: '^/Documentation/Features/',
               tree: {
                 replace: {
-                  "^/\\w+": "",
-                },
-              },
-            }),
+                  '^/\\w+': ''
+                }
+              }
+            })
           },
           {
-            label: "Deployment",
+            label: 'Deployment',
             query: createNotesQuery({
-              pattern: "^/Deployment/",
-            }),
-          },
-        ],
+              pattern: '^/Documentation/Deployment/'
+            })
+          }
+        ]
       },
       {
-        label: "Releases",
+        label: 'Releases',
         groups: [
           {
             query: createNotesQuery({
-              pattern: "^/Releases/",
-            }),
-          },
-        ],
-      },
-      {
-        label: "Notes",
-        groups: [
-          {
-            label: "Forgetful",
-            query: createNotesQuery({
-              pattern: "^/Forgetful Notes/",
-            }),
-          },
-        ],
-      },
-    ],
+              pattern: '^/Documentation/Releases/'
+            })
+          }
+        ]
+      }
+    ]
   },
   tags: {
     map: {
-      "dynamic-content": "dynamic content",
-    },
-  },
-});
+      'dynamic-content': 'dynamic content'
+    }
+  }
+})
