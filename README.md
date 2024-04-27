@@ -9,7 +9,11 @@
 A different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden).
 
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/)
-<!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://forgetful-notes.vercel.app/) -->
+<!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://eleventy-notes.vercel.app/) -->
+
+## 📝 Notes
+
+The `package.json` in the root of the repository simply acts as a mediator between you and the actual `package.json` within the `.app/` directory.
 
 ## 🛠️ Technology
 
