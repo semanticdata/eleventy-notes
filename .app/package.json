@@ -15,7 +15,8 @@
     "clean": "rimraf dist",
     "check": "npx prettier .. --check --ignore-path ./../.prettierignore --config ./../.prettierrc",
     "format": "npx prettier .. --write --ignore-path ./../.prettierignore --config ./../.prettierrc",
-    "test": "npx @11ty/eleventy --dryrun"
+    "test": "npx @11ty/eleventy --dryrun",
+    "prepare": "cd .. && husky .app/.husky"
   },
   "keywords": [],
   "author": "",
