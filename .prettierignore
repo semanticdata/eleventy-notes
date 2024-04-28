@@ -1,7 +1,7 @@
 node_modules
 package-lock.json
-README.md
 pnpm-lock.yaml
+README.md
 
 .app/.parcel-cache
 .app/dist
