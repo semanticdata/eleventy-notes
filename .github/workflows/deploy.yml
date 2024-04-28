@@ -18,11 +18,11 @@ concurrency:
 env:
   ELEVENTY_NOTES_PATH_PREFIX: 'eleventy-notes'
 
-run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+# run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 jobs:
   setup:
-    name: Setup
+    name: Setup and Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,12 +35,6 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm install --prefix .app
-
-  build:
-    name: Build
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - name: Build
         run: npm run build --prefix .app
       - name: Upload artifact
