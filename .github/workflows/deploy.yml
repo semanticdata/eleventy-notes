@@ -44,7 +44,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [build, setup]
+    needs: setup
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
