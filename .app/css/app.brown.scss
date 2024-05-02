@@ -8,8 +8,8 @@
     'Noto Color Emoji';
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
+  --font-size-xs: var(--font-size-fluid-x2);
+  --font-size-sm: var(--font-size-fluid-x1);
   --font-size-fluid-x2: clamp(0.79rem, calc(0.76rem + 0.17vw), 0.89rem);
   --font-size-fluid-x1: clamp(0.89rem, calc(0.85rem + 0.19vw), 1rem);
   --font-size-fluid-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);

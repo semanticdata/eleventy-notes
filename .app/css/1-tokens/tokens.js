@@ -4,8 +4,9 @@ module.exports = (theme) => ({
   'font-family-mono':
     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 
-  'font-size-xs': '0.75rem',
-  'font-size-sm': '0.875rem',
+  // manually adjusted by semanticdata
+  'font-size-xs': 'var(--font-size-fluid-x2)',
+  'font-size-sm': 'var(--font-size-fluid-x1)',
 
   // "https://utopia.fyi/type/calculator?c=320,16,1.125,1240,18,1.125,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12",
   'font-size-fluid-x2': 'clamp(0.79rem, calc(0.76rem + 0.17vw), 0.89rem)',
