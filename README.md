@@ -65,7 +65,8 @@ The site uses various technologies cobbled together. Here's some of them:
 
 The [vercel.json](vercel.json) file in the root directory defines our framework, our run commands, sets up cache and adds HTTP headers to any Vercel deployment. Read more about `vercel.json` configuration [here](https://vercel.com/docs/projects/project-configuration). The headers included are:
 
-- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (CSP)
+<!-- - [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (CSP) -->
+
 - [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 - [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
 - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
