@@ -16,6 +16,25 @@
 - The new `package.json` in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
 - Scripts for Prettier have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
 
+## 🔧 Useful Tips
+
+```sh
+# Install dependencies
+npm i
+# Start local dev server
+npm start
+# Build site
+npm run build
+# Update dependencies
+npm update
+# Run build test
+npm run test
+# Check formatting w/ Prettier
+npm run check
+# Format codebase w/ Prettier
+npm run format
+```
+
 ## 🛠️ Technology
 
 The site uses various technologies cobbled together. Here's some of them:
@@ -25,11 +44,12 @@ The site uses various technologies cobbled together. Here's some of them:
 - [Parcel](https://parceljs.org/): zero configuration build tool for the web.
 - [Prettier](https://github.com/prettier/prettier): an opinionated code formatter.
 - [Sass](https://github.com/sass/sass): because CSS can be fun.
-<!-- - [Husky](https://github.com/typicode/husky): Git hooks manager. -->
+- [Husky](https://github.com/typicode/husky): Git hooks manager.
+- [FlexSearch](https://github.com/nextapps-de/flexsearch): fast and memory-flexible full-text search library with no dependencies.
 
 ## 💜 Attributions
 
-This project is based on [rothsandro/eleventy-notes](https://github.com/rothsandro/eleventy-notes).
+This project is based on [Eleventy Notes](https://github.com/rothsandro/eleventy-notes), a project by [Sandro Roth](https://github.com/rothsandro).
 
 ## © License
 

@@ -7,6 +7,7 @@
     "start": "cd .app && npm start",
     "check": "cd .app && npm run check",
     "format": "cd .app && npm run format",
+    "prepare": "cd .app && npm run prepare",
     "test": "cd .app && npm run test"
   }
 }

@@ -13,10 +13,10 @@
     "css:build": "node scripts/bundle-css.js",
     "js:build": "node scripts/bundle-js.js",
     "clean": "rimraf dist",
+    "prepare": "cd .. && husky .app/.husky",
     "check": "npx prettier .. --check --ignore-path ./../.prettierignore --config ./../.prettierrc",
     "format": "npx prettier .. --write --ignore-path ./../.prettierignore --config ./../.prettierrc",
-    "test": "npx @11ty/eleventy --dryrun",
-    "prepare": "cd .. && husky .app/.husky"
+    "test": "npx @11ty/eleventy --dryrun"
   },
   "keywords": [],
   "author": "",
