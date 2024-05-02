@@ -1,4 +1,4 @@
 cd .app # change into the project root
 npm run check # check formatting w/ Prettier
 npm run test # Format codebase w/ Prettier
-# exit 1 # mix with cd .app to only test pre-commit config.
+# exit 1 # combine with cd .app to only test pre-commit config.
