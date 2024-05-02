@@ -13,10 +13,13 @@
 
 ## 📝 Notes
 
-- The new `package.json` in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
-- Scripts for Prettier have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
+- The `package.json` in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
+- Scripts for [Prettier](https://github.com/prettier/prettier) have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
+- We use [Husky](https://github.com/typicode/husky) for pre-commit workflows. This project is set up by default to run `npm run check` and `npm run test`. This will warn you of any errors in formatting, or if the app build fails. All this happens after you commit any changes, before you have the chance to push code that has errors.
 
 ## 🔧 Useful Tips
+
+You can run the following commands from the `.app/` directory, or from the project's root.
 
 ```sh
 # Install dependencies
