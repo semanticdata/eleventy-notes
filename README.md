@@ -1,39 +1,48 @@
 # 📒 Eleventy Notes
 
-![code size](https://img.shields.io/github/languages/code-size/semanticdata/forgetful-notes)
-![repository size](https://img.shields.io/github/repo-size/semanticdata/forgetful-notes)
-![commits](https://img.shields.io/github/commit-activity/t/semanticdata/forgetful-notes)
-![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes)
-![website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
+![code size](https://img.shields.io/github/languages/code-size/semanticdata/forgetful-notes) ![repository size](https://img.shields.io/github/repo-size/semanticdata/forgetful-notes) ![commits](https://img.shields.io/github/commit-activity/t/semanticdata/forgetful-notes) ![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes) ![website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
 
 [Eleventy Notes](https://semanticdata.github.io/eleventy-notes/) is a different take on [Forgetful Notes](https://forgetfulnotes.com/), my [digital garden](https://forgetfulnotes.com/Digital-Garden). All content within is tecnically a placeholder since it's just mirroring the files in my current [digital garden](https://forgetfulnotes.com/).
 
-[![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/)
-<!-- [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://eleventy-notes.vercel.app/) -->
+[![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://semanticdata.github.io/eleventy-notes/) [![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://eleventy-notes.vercel.app/)
 
 ## 📝 Notes
 
-- The `package.json` in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
-- Scripts for [Prettier](https://github.com/prettier/prettier) have been added and configured in such a way that the `.prettierrc` and `.prettierignore` files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
-- We use [Husky](https://github.com/typicode/husky) for pre-commit workflows. This project is set up by default to run `npm run check` and `npm run test`. This will warn you of any errors in formatting, or if the app build fails. All this happens after you commit any changes, before you have the chance to push code that has errors.
+### Proxy `package.json`
+
+The [package.json](package.json) in the root of the repository acts as a mediator between you and the actual `package.json` within the `.app/` directory.
+
+### Formatting w/ Prettier
+
+Scripts for [Prettier](https://github.com/prettier/prettier) have been added and configured in such a way that the [.prettierrc](.prettierrc) and [.prettierignore](..prettierignore) files can remain in the root of the repository meaning they can be modified without the fear of being overwritten by a future update.
+
+### Git hooks w/ Husky
+
+We use [Husky](https://github.com/typicode/husky) for pre-commit workflows. This project is set up by default to run `npm run check` and `npm run test` after any commit. This will warn you of any errors in formatting, or if the app build fails. All this happens after you commit any changes, but before you have the chance to push code with errors.
 
 ## 🔧 Useful Tips
 
-You can run the following commands from the `.app/` directory, or from the project's root.
+You can run the following commands from the `.app` directory, or from the project's root.
 
 ```sh
 # Install dependencies
 npm i
+
 # Start local dev server
 npm start
+
 # Build site
 npm run build
+
 # Update dependencies
 npm update
+
 # Run build test
 npm run test
+
 # Check formatting w/ Prettier
 npm run check
+
 # Format codebase w/ Prettier
 npm run format
 ```
@@ -43,12 +52,32 @@ npm run format
 The site uses various technologies cobbled together. Here's some of them:
 
 - [11ty](https://www.11ty.dev/): a simpler static site generator.
-- [Alpine.js](https://alpinejs.dev/): lightweight, JavaScript framework.
+- [Alpine.js](https://alpinejs.dev/): lightweight JavaScript framework.
+- [FlexSearch](https://github.com/nextapps-de/flexsearch): fast and memory-flexible full-text search library with no dependencies.
+- [Husky](https://github.com/typicode/husky): Git hooks manager.
 - [Parcel](https://parceljs.org/): zero configuration build tool for the web.
 - [Prettier](https://github.com/prettier/prettier): an opinionated code formatter.
 - [Sass](https://github.com/sass/sass): because CSS can be fun.
-- [Husky](https://github.com/typicode/husky): Git hooks manager.
-- [FlexSearch](https://github.com/nextapps-de/flexsearch): fast and memory-flexible full-text search library with no dependencies.
+
+## 🚀 Deployments
+
+### Vercel
+
+The [vercel.json](vercel.json) file in the root directory defines our framework, our run commands, sets up cache and adds HTTP headers to any Vercel deployment. Read more about `vercel.json` configuration [here](https://vercel.com/docs/projects/project-configuration). The headers included are:
+
+- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (CSP)
+- [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+- [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
+- [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
+- [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+- [Permissions-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
+
+### GitHub Pages
+
+The project includes two GitHub Actions: to aid deployment to GitHub Pages.
+
+- [Build only](https://github.com/semanticdata/eleventy-notes/blob/main/.github/workflows/build-only.yml): no artifact is created. It's set up as process check and enabled to run automatically after push requests.
+- [Deploy](https://github.com/semanticdata/eleventy-notes/blob/main/.github/workflows/deploy.yml): sets up permissions, concurreny limits, and environment variable to publish projects using `your-username.github.io/your-project`.
 
 ## 💜 Attributions
 
