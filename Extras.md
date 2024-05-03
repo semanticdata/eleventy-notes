@@ -9,22 +9,16 @@ Topics:
 
 ## Adding Husky
 
-[Husky](https://typicode.github.io/husky/) enhances your commits. We This section will go over:
+[Husky](https://typicode.github.io/husky/) allows pre-commit commands. This section will go over:
 
 - How to add Husky to your project
 - How to configure it for pre-commits
-
-### Why Use Husky
-
-To you, the reader, thank you.
-
-### Getting Started
 
 You are _strongly_ encouraged to follow the official documentation on how to setup your dependencies. Check out Husky's official [documentation](https://typicode.github.io/husky/get-started.html). For the stubborn ones, let's continue.
 
 > ⚠ Remember to `cd .app` before you start the instructions. These next commands should be ran from inside our `.app` directory.
 
-#### 1. Install Husky
+### 1. Install Husky
 
 ```sh
 # Install Husky with NPM
@@ -37,7 +31,7 @@ pnpm add --save-dev husky
 bun add --dev husky
 ```
 
-#### 2. Initiate Husky
+### 2. Initiate Husky
 
 ```sh
 # Initiate Husky with NPM
@@ -50,7 +44,7 @@ pnpm exec husky init
 bun husky init
 ```
 
-#### 3. Add New Hooks
+### 3. Add New Hooks
 
 ```sh
 # Add the script `test` Git Hook with NPM.
@@ -63,7 +57,7 @@ echo "pnpm test" > .app/.husky/pre-commit
 echo "bun test" > .app/.husky/pre-commit
 ```
 
-#### 4. Revise `.husky/pre-commit`[^1]
+### 4. Revise `.husky/pre-commit`[^1]
 
 ```sh
 cd .app # change into the project root
@@ -71,7 +65,7 @@ npm run check # check formatting w/ Prettier
 npm run test # Format codebase w/ Prettier
 ```
 
-#### 5. Test Husky without a Commit
+### 5. Test Husky without a Commit
 
 ```sh
 exit 1 # Add to the hook script to exit the test without committing anything
@@ -82,9 +76,7 @@ npm run check
 exit 1
 ```
 
-Having issues? Be sure to visit the official [Troubleshooting](https://typicode.github.io/husky/troubleshoot.html) page.
-
-### `.app/package.json`
+### 6. Modify the `prepare` script in `.app/package.json`
 
 ```json
 {
@@ -94,6 +86,8 @@ Having issues? Be sure to visit the official [Troubleshooting](https://typicode.
 }
 ```
 
+Having issues? Be sure to visit the official [Troubleshooting](https://typicode.github.io/husky/troubleshoot.html) page.
+
 ## Adding Prettier
 
 [Prettier](https://prettier.io/docs/en/) is an opinionated code formatter. This section will go over:
@@ -101,11 +95,18 @@ Having issues? Be sure to visit the official [Troubleshooting](https://typicode.
 - How to add Prettier to your project
 - How to configure it
 - Scripts to check and format the entire repository
-- How to add it to our pre-commit
+- How to add it to our pre-commit workflow
 
-### Example Configuration Files
+### 1. Install Prettier
 
-#### `.prettierrc`[^2]
+```sh
+# Install Prettier
+npm install --save-dev --save-exact prettier
+```
+
+### 2. Create `.prettierrc`[^2]
+
+Copy the codeblock below into the new file.
 
 ```json
 {
@@ -135,7 +136,9 @@ Having issues? Be sure to visit the official [Troubleshooting](https://typicode.
 }
 ```
 
-#### `.prettierignore`
+### 3. Create `.prettierignore`
+
+Copy the codeblock below into the new file.
 
 ```plaintext
 node_modules
@@ -149,7 +152,9 @@ pnpm-lock.yaml
 .app/pnpm-lock.yaml
 ```
 
-#### `.app/package.json`
+### 4. Modify `.app/package.json`
+
+Make sure you add the following scripts to the `package.json` inside the `.app` directory.
 
 ```json
 {
@@ -162,7 +167,11 @@ pnpm-lock.yaml
 
 ## Adding New `package.json` to the Root
 
-### `package.json`
+By adding an additional `paackge.json` file at the root of our repository, we can bridge the gap between you entering commands at the root directory and the commands being executed inside the `.app` folder.
+
+### 1. Create `package.json` in the root directory
+
+Copy the codeblock below into the new file.
 
 ```json
 {
@@ -180,7 +189,9 @@ pnpm-lock.yaml
 }
 ```
 
-### `.app/package.json`
+### 2. Modify `.app/package.json`
+
+Verify the following scripts are added.
 
 ```json
 {
@@ -195,7 +206,7 @@ pnpm-lock.yaml
 
 ## Custom Vercel HTTP Headers
 
-We will touch on:
+This section will touch on:
 
 - [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
 - [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
@@ -203,7 +214,9 @@ We will touch on:
 - [Permissions-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
 <!-- - [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (CSP) -->
 
-### `vercel.json`
+### Create a new `vercel.json` in the root
+
+Copy the codeblock below into the new file.
 
 ```json
 {
@@ -249,6 +262,8 @@ We will touch on:
   ]
 }
 ```
+
+Enjoy!
 
 [^1]: Swap in your favorite package manager (NPM, PNPM, Bun).
 [^2]: This is the configuration I use for my projects.
