@@ -8,6 +8,15 @@ compartir: true
 
 ## 2024
 
+### May
+
+- Contributing to the [Eleventy Notes](https://github.com/rothsandro/eleventy-notes) project. Put together a new workflow specific to the project and the changes were incorporated into the project. Here's the [publication](https://eleventy-notes.sandroroth.com/n/deployment/github-pages/).
+- Added a new sidebar companion toggled via shortcut and toolbar button to both [Firefox TabSpace](https://github.com/semanticdata/firefox-tabspace) and [Firefox New Tab Notes](https://github.com/semanticdata/firefox-new-tab-notes). I am reconsidering renaming the extension so it matches its features better. As it is no longer just about notes in your new tab, but also notes in the sidebar, I (at least) temporarily renamed it _"Just Notes"_.
+- Developed a new [GitHub Actions](https://github.com/features/actions) [workflow](https://github.com/semanticdata/firefox-new-tab-notes/blob/main/.github/workflows/web-ext-workflow.yml) to deploy Firefox extensions by creating a new release in the corresponding repository. It was originally tested on [Just Notes](https://github.com/semanticdata/firefox-new-tab-notes/blob/main/.github/workflows/web-ext-workflow.yml). The new workflow was later then added to all of my Firefox extensions to aid in new version releases.
+- Released 2 new Firefox extensions:
+  - [Gemini in Sidebar](https://github.com/semanticdata/firefox-gemini-in-sidebar)
+  - [Meta AI in Sidebar](https://github.com/semanticdata/firefox-metaai-in-sidebar)
+
 ### April
 
 - Helped a good friend study for some certifications they are testing for. Felt great knowing they were no longer feeling as much pressure afterwards. 😊
