@@ -1,11 +1,11 @@
-# Additional to Eleventy Notes
+# Additional to Eleventy Notes (Optional)
 
-Topics:
+In this page we will cover:
 
-- Adding Prettier and scripts to format the entire repository
-- Adding Husky and setting up a pre-commit workflow
-- Adding a root `package.json` that acts as mediator with the actual `package.json` inside `.app`.
-- Adding custom HTTP headers via `vercel.json`
+- [Adding Husky and setting up a pre-commit workflow](#adding-husky).
+- [Adding Prettier and scripts to format the entire repository](#adding-prettier).
+- [Adding a root `package.json` that acts as mediator with the actual `package.json` inside `.app`.](#adding-new-packagejson-to-the-root)
+- [Adding custom HTTP headers via `vercel.json`.](#custom-vercel-http-headers)
 
 ## Adding Husky
 
@@ -14,7 +14,7 @@ Topics:
 - How to add Husky to your project
 - How to configure it for pre-commits
 
-You are _strongly_ encouraged to follow the official documentation on how to setup your dependencies. Check out Husky's official [documentation](https://typicode.github.io/husky/get-started.html). For the stubborn ones, let's continue.
+Check out Husky's official [documentation](https://typicode.github.io/husky/get-started.html).
 
 > ⚠ Remember to `cd .app` before you start the instructions. These next commands should be ran from inside our `.app` directory.
 
@@ -86,7 +86,7 @@ exit 1
 }
 ```
 
-Having issues? Be sure to visit the official [Troubleshooting](https://typicode.github.io/husky/troubleshoot.html) page.
+Having issues? Be sure to visit the official [Troubleshooting](https://typicode.github.io/husky/troubleshoot.html) page for Husky.
 
 ## Adding Prettier
 
@@ -106,7 +106,9 @@ npm install --save-dev --save-exact prettier
 
 ### 2. Create `.prettierrc`[^2]
 
-Copy the codeblock below into the new file.
+You can use `node --eval "fs.writeFileSync('.prettierrc','{}\n')"` to create an empty config file.
+
+Feel free to custumize it however you prefer. Find the codeblock below to reference. You can also just copy it into the file.
 
 ```json
 {
@@ -164,6 +166,10 @@ Make sure you add the following scripts to the `package.json` inside the `.app` 
   }
 }
 ```
+
+Now we can use `npm run check` to check the formatting of our code, and `npm run format` to have Prettier format it all.
+
+Having issues? Be sure to visit the official [documentation](https://prettier.io/docs/en/) for Prettier.
 
 ## Adding New `package.json` to the Root
 
@@ -262,6 +268,8 @@ Copy the codeblock below into the new file.
   ]
 }
 ```
+
+Having issues? Be sure to visit the official [documentation](https://vercel.com/docs/projects/project-configuration).
 
 Enjoy!
 
