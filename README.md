@@ -104,4 +104,4 @@ Source code in this repository is available under the [MIT License](LICENSE).
 
 [^1]: Fixed tap targets size in mobile-view to address [Lighthouse](https://developer.chrome.com/docs/lighthouse) SEO score.
 [^2]: Currently set up to run `npm run check` and `npm run test` before all commits.
-[^3]: Also included config files [.prettierrc](.prettierrc), and [.prettierignore](..prettierignore).
+[^3]: Also included config files [.prettierrc](.prettierrc), and [.prettierignore](.prettierignore).
