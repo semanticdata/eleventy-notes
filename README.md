@@ -1,3 +1,5 @@
+⚠ ARCHIVED: This project is no longer being developed. Unfortunately the `.app` approach does not work for me. ⚠
+
 # 📒 Eleventy Notes
 
 ![code size](https://img.shields.io/github/languages/code-size/semanticdata/forgetful-notes) ![repository size](https://img.shields.io/github/repo-size/semanticdata/forgetful-notes) ![commits](https://img.shields.io/github/commit-activity/t/semanticdata/forgetful-notes) ![last commit](https://img.shields.io/github/last-commit/semanticdata/forgetful-notes) ![website up?](https://img.shields.io/website/https/forgetfulnotes.com.svg)
