@@ -1,6 +1,4 @@
-# Additional to Eleventy Notes (Optional)
-
-## Adding Husky
+# Adding Husky
 
 [Husky](https://typicode.github.io/husky/) enhances your commits. We This section will go over:
 
@@ -11,19 +9,19 @@ You are _strongly_ encouraged to follow the official documentation on how to set
 
 > [!Attention] Remember to `cd .app` before you start the instructions. These next commands should be ran from inside our `.app` directory.
 
-### 1. Install Husky
+## 1. Install Husky
 
 ```sh
 npm install --save-dev husky
 ```
 
-### 2. Initiate Husky
+## 2. Initiate Husky
 
 ```sh
 npx husky init
 ```
 
-### 3. Create New Scripts
+## 3. Create New Scripts
 
 1. Open `.app/package.json` and find the `scripts` section.
 2. Within it, add new `test` entry and verify the `prepare` script matches the one shown below:
@@ -35,7 +33,7 @@ npx husky init
 }
 ```
 
-### 4. Add New Hooks
+## 4. Add New Hooks
 
 Add the script `test` to our pre-commit.
 
@@ -43,7 +41,7 @@ Add the script `test` to our pre-commit.
 echo "npm test" > .husky/pre-commit
 ```
 
-### 5. Test Husky without a Commit
+## 5. Test Husky without a Commit
 
 Add `exit 1` to the hook script to exit the test without committing anything. for example:
 
@@ -53,21 +51,3 @@ exit 1
 ```
 
 Having issues? Be sure to visit the official [Troubleshooting](https://typicode.github.io/husky/troubleshoot.html) page.
-
-## Adding New `package.json` to the Root
-
-By adding an additional `package.json` at the root of our repository, we can bridge the gap between you entering commands at the root directory and the commands being executed inside the `.app` folder. For example:
-
-### `package.json`
-
-```json
-{
-  "scripts": {
-    "i": "cd .app && npm i",
-    "install": "cd .app && npm install",
-    "start": "cd .app && npm start",
-    "build": "cd .app && npm run build",
-    "update": "cd .app && npm update"
-  }
-}
-```
